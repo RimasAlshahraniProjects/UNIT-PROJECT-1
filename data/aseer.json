@@ -1,0 +1,113 @@
+{
+  "id": "aseer",
+  "name": "Aseer (Abha)",
+  "terrain": ["Mountainous", "Forest", "Valley"],
+  "climate": "Moderate most of the year",
+  "coastal": false,
+  "mountainous": true,
+  "average_rating": 4.8,
+  "best_time_to_visit": "Winter: December to February / Summer: May to August",
+  "short_description": "Aseer offers a perfect blend of natural beauty and cultural richness, surrounded by towering mountains and lush forests.",
+  "full_description": "Located in the south of Saudi Arabia, Aseer features stunning mountains and dense forests. Key attractions include Jabal Sawda, Rijal Alma Heritage Village, and the famous Soudah Cable Car. It is an ideal destination for hiking and cultural exploration.",
+  
+  "activities_data": {
+    "shopping": [
+      {
+        "id": "asr_shop_1",
+        "name": "Al-Rashed Mall",
+        "nearby_cafe": "Cherry Castle",
+        "nearby_restaurant": "Jory Elite",
+        "best_time": "Afternoon",
+        "visited": false
+      },
+      {
+        "id": "asr_shop_2",
+        "name": "Moujan Park",
+        "nearby_cafe": "Sikkath Al-Kaif",
+        "nearby_restaurant": "Habka",
+        "best_time": "Evening",
+        "visited": false
+      },
+      {
+        "id": "asr_shop_3",
+        "name": "Sky Flight",
+        "nearby_area": "Le Premier",
+        "best_time": "Evening",
+        "visited": false
+      }
+    ],
+    "nature_and_adventure": [
+      {
+        "id": "asr_nat_1",
+        "name": "Jabal Sawda",
+        "activity_type": "Hiking & Panoramic Views",
+        "best_time": "Morning",
+        "visited": false
+      },
+      {
+        "id": "asr_nat_2",
+        "name": "Al-Hubala Park",
+        "activity_type": "Adventure & Sightseeing",
+        "best_time": "Afternoon",
+        "visited": false
+      },
+      {
+        "id": "asr_nat_3",
+        "name": "Abha Dam Lake",
+        "activity_type": "Relaxation",
+        "best_time": "Late Afternoon",
+        "visited": false
+      },
+      {
+        "id": "asr_nat_4",
+        "name": "Honey Hut & Tourist Vineyards",
+        "activity_type": "Nature Exploration",
+        "best_time": "Morning",
+        "visited": false
+      },
+      {
+        "id": "asr_nat_5",
+        "name": "Dalgah Park",
+        "activity_type": "Relaxation",
+        "best_time": "Afternoon",
+        "visited": false
+      }
+    ],
+    "heritage_and_landmarks": [
+      {
+        "id": "asr_her_1",
+        "name": "Rijal Alma Heritage Village",
+        "nearby_area": "Aseeri Museum",
+        "best_time": "Morning",
+        "visited": false
+      },
+      {
+        "id": "asr_her_2",
+        "name": "Al-Muftaha Village",
+        "nearby_area": "Al-Basta District",
+        "best_time": "Afternoon",
+        "visited": false
+      },
+      {
+        "id": "asr_her_3",
+        "name": "Abu Khayal Fort",
+        "nearby_area": "Cable Car Station",
+        "best_time": "Evening",
+        "visited": false
+      },
+      {
+        "id": "asr_her_4",
+        "name": "Shada Palace",
+        "nearby_area": "Zabna Historical Palace",
+        "best_time": "Morning",
+        "visited": false
+      }
+    ]
+  },
+  "travel_tips": [
+    "Visit Jabal Sawda for breathtaking mountain views.",
+    "Explore Rijal Alma heritage village for cultural immersion.",
+    "Use the cable car in Soudah to enjoy panoramic views.",
+    "Bring a light jacket as the weather can be cool even in summer."
+  ]
+}

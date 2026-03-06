@@ -1,0 +1,95 @@
+{
+  "id": "alula",
+  "name": "AlUla",
+   "terrain": ["Desert", "Rock Formations"],
+  "climate": "Mild Winter / Warm Desert",
+  "coastal": false,
+  "mountainous": false,
+  "average_rating": 4.9,
+  "best_time_to_visit": "November to February",
+  "short_description": "A journey through time where ancient history meets modern art in a stunning desert landscape.",
+  "full_description": "AlUla is a breathtaking destination combining UNESCO heritage sites like Hegra with architectural wonders like Maraya. It offers a unique balance between cultural discovery, adventure, and desert tranquility.",
+  
+  "activities_data": {
+    "shopping_and_arts": [
+      {
+        "id": "alu_shop_1",
+        "name": "AlJadidah Arts District",
+        "nearby_cafe": "Wacafe",
+        "nearby_restaurant": "Somewhere (AlUla)",
+        "best_time": "Evening",
+        "visited": false
+      },
+      {
+        "id": "alu_shop_2",
+        "name": "Old Town Market",
+        "nearby_cafe": "Pink Camel (Pastries)",
+        "nearby_restaurant": "Suhail Old Town",
+        "best_time": "Afternoon",
+        "visited": false
+      },
+      {
+        "id": "alu_shop_3",
+        "name": "Al Manshiyah Plaza",
+        "nearby_cafe": "Local Coffee Shops",
+        "nearby_restaurant": "Al-Nakheel",
+        "best_time": "Evening",
+        "visited": false
+      }
+    ],
+    "nature_and_adventure": [
+      {
+        "id": "alu_nat_1",
+        "name": "Elephant Rock (Jabal AlFil)",
+        "activity_type": "Relaxation & Stargazing",
+        "nearby_cafe": "SALT (Burger & Coffee)",
+        "best_time": "Sunset / Night",
+        "visited": false
+      },
+      {
+        "id": "alu_nat_2",
+        "name": "Hegra (Madain Saleh)",
+        "activity_type": "Heritage Tour",
+        "requirement": "Pre-booked Tour",
+        "best_time": "Morning",
+        "visited": false
+      },
+      {
+        "id": "alu_nat_3",
+        "name": "Hot Air Balloon Ride",
+        "activity_type": "Adventure",
+        "best_time": "Early Morning",
+        "visited": false
+      }
+    ],
+    "heritage_and_landmarks": [
+      {
+        "id": "alu_her_1",
+        "name": "Maraya Social",
+        "nearby_area": "Mirrored Building",
+        "best_time": "Sunset",
+        "visited": false
+      },
+      {
+        "id": "alu_her_2",
+        "name": "Jabal Ikmah",
+        "nearby_area": "Open-air Library (Inscriptions)",
+        "best_time": "Morning",
+        "visited": false
+      },
+      {
+        "id": "alu_her_3",
+        "name": "AlUla Old Town",
+        "nearby_area": "900 Mudbrick Houses",
+        "best_time": "Afternoon",
+        "visited": false
+      }
+    ]
+  },
+  "travel_tips": [
+    "Book heritage tours (Hegra, Dadan) in advance as they sell out quickly.",
+    "Visit Maraya during sunset to see the building disappear into the mountains.",
+    "The desert gets cold at night during winter; always carry a warm jacket.",
+    "AlJadidah is best explored on foot to enjoy the street art and galleries."
+  ]
+}

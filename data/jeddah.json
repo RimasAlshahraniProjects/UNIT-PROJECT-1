@@ -1,0 +1,99 @@
+{
+  "id": "jeddah",
+  "name": "Jeddah",
+   "terrain": ["Coastal", "Urban"],
+  "climate": "Warm / Mild Winter",
+  "coastal": true,
+  "mountainous": false,
+  "average_rating": 4.6,
+  "best_time_to_visit": "October to April",
+  "short_description": "Jeddah is a coastal city blending coral architecture with modern waterfronts.",
+  "full_description": "Jeddah, historically the gateway for pilgrims and traders, combines heritage architecture with modern coastal areas. It offers stunning beaches, historical districts like Al-Balad, and a rich culinary scene.",
+  
+  "activities_data": {
+    "shopping": [
+      {
+        "id": "jed_shop_1",
+        "name": "Red Sea Mall",
+        "nearby_cafe": "Brew 92",
+        "nearby_restaurant": "Shezan Indian Restaurant",
+        "best_time": "Afternoon",
+        "visited": false
+      },
+      {
+        "id": "jed_shop_2",
+        "name": "Jeddah Park",
+        "nearby_cafe": "Pause Cafe",
+        "nearby_restaurant": "Ketchup",
+        "best_time": "Evening",
+        "visited": false
+      },
+      {
+        "id": "jed_shop_3",
+        "name": "Jeddah Boulevard",
+        "nearby_cafe": "Baco",
+        "nearby_restaurant": "The Cheesecake Factory",
+        "best_time": "Evening",
+        "visited": false
+      }
+    ],
+    "nature_and_beach": [
+      {
+        "id": "jed_nat_1",
+        "name": "White Island",
+        "activity_type": "Beach & Water Activities",
+        "best_time": "Morning",
+        "visited": false
+      },
+      {
+        "id": "jed_nat_2",
+        "name": "Corniche Park",
+        "activity_type": "Relaxation & Sightseeing",
+        "best_time": "Late Afternoon",
+        "visited": false
+      },
+      {
+        "id": "jed_nat_3",
+        "name": "Al-Abhur Creek",
+        "activity_type": "Water Activities",
+        "best_time": "Morning",
+        "visited": false
+      }
+    ],
+    "heritage_and_landmarks": [
+      {
+        "id": "jed_her_1",
+        "name": "Historic Al-Balad",
+        "nearby_area": "Dar Al-Funun",
+        "best_time": "Afternoon",
+        "visited": false
+      },
+      {
+        "id": "jed_her_2",
+        "name": "King Fahd Fountain",
+        "nearby_area": "Jeddah Corniche",
+        "best_time": "Night",
+        "visited": false
+      },
+      {
+        "id": "jed_her_3",
+        "name": "Islamic Arts Center",
+        "nearby_area": "Cultural Exploration",
+        "best_time": "Morning",
+        "visited": false
+      },
+      {
+        "id": "jed_her_4",
+        "name": "Jeddah Art Walk",
+        "nearby_area": "Modern Sightseeing",
+        "best_time": "Evening",
+        "visited": false
+      }
+    ]
+  },
+  "travel_tips": [
+    "Explore Al-Balad for its unique coral-stone architecture.",
+    "Visit the Corniche for scenic walks and leisure.",
+    "The King Fahd Fountain is a must-see landmark, especially at night."
+  ]
+}

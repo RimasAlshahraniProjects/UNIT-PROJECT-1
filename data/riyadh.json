@@ -1,0 +1,116 @@
+{
+  "id": "riyadh",
+  "name": "Riyadh",
+  "terrain": ["urban", "desert", "oasis"],
+  "climate": "Hot Desert / Mild Winter",
+  "coastal": false,
+  "mountainous": false,
+  "average_rating": 4.7,
+  "best_time_to_visit": "Winter: November to March",
+  "short_description": "The beating heart of the Kingdom, where Najdi heritage meets modern skyscrapers.",
+  "full_description": "Riyadh is the capital of Saudi Arabia, blending modern urban development with rich cultural and historical sites. It offers a unique experience for luxury lovers, desert explorers, and mountain adventurers.",
+  
+  "activities_data": {
+    "shopping": [
+      {
+        "id": "ryd_shop_1",
+        "name": "Riyadh Park",
+        "nearby_cafe": "Half Million",
+        "nearby_restaurant": "Texas Roadhouse",
+        "best_time": "Afternoon",
+        "visited": false
+      },
+      {
+        "id": "ryd_shop_2",
+        "name": "Nakheel Mall",
+        "nearby_cafe": "Brew Crew",
+        "nearby_restaurant": "Lusin",
+        "best_time": "Evening",
+        "visited": false
+      },
+      {
+        "id": "ryd_shop_3",
+        "name": "Granada Mall",
+        "nearby_cafe": "Joe & The Juice",
+        "nearby_restaurant": "Piatto",
+        "best_time": "Evening",
+        "visited": false
+      }
+    ],
+    "nature_and_adventure": [
+      {
+        "id": "ryd_nat_1",
+        "name": "Wadi Namar",
+        "activity_type": "Relaxation",
+        "nearby_cafe": "Food Trucks",
+        "best_time": "Late Afternoon",
+        "visited": false
+      },
+      {
+        "id": "ryd_nat_2",
+        "name": "Al-Watan Park",
+        "activity_type": "Sightseeing",
+        "nearby_cafe": "Tower Cafe",
+        "best_time": "Afternoon",
+        "visited": false
+      },
+      {
+        "id": "ryd_nat_3",
+        "name": "Hit Cave",
+        "activity_type": "Adventure & Swimming",
+        "best_time": "Morning",
+        "visited": false
+      },
+      {
+        "id": "ryd_nat_4",
+        "name": "Edge of the World",
+        "activity_type": "Hiking & Adventure",
+        "best_time": "Early Morning",
+        "visited": false
+      }
+    ],
+    "heritage_and_landmarks": [
+      {
+        "id": "ryd_her_1",
+        "name": "Masmak Fort",
+        "nearby_area": "Al-Dirah Historic District",
+        "best_time": "Morning",
+        "visited": false
+      },
+      {
+        "id": "ryd_her_2",
+        "name": "Al-Faisaliah Tower",
+        "nearby_cafe": "The Globe",
+        "best_time": "Evening",
+        "visited": false
+      },
+      {
+        "id": "ryd_her_3",
+        "name": "Kingdom Center",
+        "nearby_area": "Sky Bridge",
+        "best_time": "Evening",
+        "visited": false
+      },
+      {
+        "id": "ryd_her_4",
+        "name": "Boulevard City",
+        "nearby_area": "Entertainment & Dining",
+        "best_time": "Night",
+        "visited": false
+      },
+      {
+        "id": "ryd_her_5",
+        "name": "Old Riyadh Village",
+        "nearby_area": "Cultural Exploration",
+        "best_time": "Afternoon",
+        "visited": false
+      }
+    ]
+  },
+  "travel_tips": [
+    "Visit during Riyadh Season for world-class events.",
+    "Explore historic districts like Al-Masmak for cultural insight.",
+    "Use ride-hailing apps like Uber or Careem for easy transportation.",
+    "Book luxury restaurants in advance using 'MyTable' or 'TheFork' apps."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "cities": {
+    "riyadh": {
+      "apps": {
+        "transport_apps": ["Uber", "Careem", "Jeeny", "Ajrah"],
+        "food_delivery_apps": ["HungerStation", "Jahez", "Mrsool", "ToYou"],
+        "hotels": ["Booking.com", "Agoda", "Hotels.com"],
+        "events": ["WeBook", "Eventbrite", "Maroof Events"]
+      }
+    },
+    "jeddah": {
+      "apps": {
+        "transport_apps": ["Uber", "Careem", "Jeeny", "Ajrah"],
+        "food_delivery_apps": ["HungerStation", "Jahez", "Mrsool", "ToYou"],
+        "hotels": ["Booking.com", "Agoda", "Hotels.com"],
+        "events": ["WeBook", "Eventbrite", "Maroof Events"]
+      }
+    },
+    "asir": {
+      "apps": {
+        "transport_apps": ["Uber", "Careem", "Jeeny"],
+        "food_delivery_apps": ["HungerStation", "Jahez"],
+        "hotels": ["Booking.com", "Agoda"],
+        "events": ["WeBook", "Maroof Events"]
+      }
+    },
+    "jazan": {
+      "apps": {
+        "transport_apps": ["Uber", "Careem"],
+        "food_delivery_apps": ["HungerStation", "Jahez"],
+        "hotels": ["Booking.com", "Hotels.com"],
+        "events": ["WeBook", "Eventbrite"]
+      }
+    },
+    "alula": {
+      "apps": {
+        "transport_apps": ["Uber", "Careem"],
+        "food_delivery_apps": ["Jahez", "Mrsool"],
+        "hotels": ["Booking.com", "Agoda"],
+        "events": ["WeBook", "Maroof Events"]
+      }
+    }
+  },
+  "important_numbers": {
+    "Police": "999",
+    "Ambulance": "997",
+    "Fire Department": "998",
+    "Traffic Accidents": "993",
+    "Tourism Call Center": "930"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "id": "jazan",
+  "name": "Jazan",
+  "terrain": ["Coastal", "Islands", "Mountains"],
+  "climate": "Warm Summer / Mild Winter",
+  "coastal": true,
+  "mountainous": true,
+  "average_rating": 4.7,
+  "best_time_to_visit": "Winter: December to February (Festivals) / Summer: June to August (Islands)",
+  "short_description": "A southern gem where turquoise islands meet misty green mountains.",
+  "full_description": "Jazan is famous for its stunning Red Sea coastline, the enchanting Farasan Islands, and the lush green heights of Jabal Fifa. It offers unique experiences from scuba diving in coral reefs to exploring ancient forts.",
+  
+  "activities_data": {
+    "shopping": [
+      {
+        "id": "jaz_shop_1",
+        "name": "Kadi Mall",
+        "nearby_cafe": "Lavinda Cafe",
+        "nearby_restaurant": "The Pearl (Seafood Restaurant)",
+        "best_time": "Evening",
+        "visited": false
+      },
+      {
+        "id": "jaz_shop_2",
+        "name": "Al-Rashed Mall (Jazan)",
+        "nearby_cafe": "Overdose Coffee",
+        "nearby_restaurant": "Applebee's",
+        "best_time": "Afternoon",
+        "visited": false
+      }
+    ],
+    "nature_and_adventure": [
+      {
+        "id": "jaz_nat_1",
+        "name": "Farasan Islands Reserve",
+        "activity_type": "Diving, Snorkeling & Fishing",
+        "requirement": "Boat Booking Required",
+        "best_time": "Morning",
+        "visited": false
+      },
+      {
+        "id": "jaz_nat_2",
+        "name": "Jabal Fifa",
+        "activity_type": "Mountain Exploration & Hiking",
+        "best_time": "Early Morning",
+        "visited": false
+      },
+      {
+        "id": "jaz_nat_3",
+        "name": "Jazan Corniche",
+        "activity_type": "Relaxation & Family Walks",
+        "nearby_cafe": "Sea View Cafes",
+        "best_time": "Late Afternoon",
+        "visited": false
+      }
+    ],
+    "heritage_and_landmarks": [
+      {
+        "id": "jaz_her_1",
+        "name": "Jazan Heritage Village",
+        "nearby_area": "Cultural Heritage Center",
+        "best_time": "Afternoon",
+        "visited": false
+      },
+      {
+        "id": "jaz_her_2",
+        "name": "Dosariya Fort",
+        "nearby_area": "Ancient Historical Site",
+        "best_time": "Morning",
+        "visited": false
+      }
+    ]
+  },
+  "travel_tips": [
+    "Plan your Farasan Islands trip by checking the ferry schedule in advance.",
+    "Jabal Fifa has steep roads; hire a local guide if you're not used to mountain driving.",
+    "Winter is the best time for cultural festivals like the 'Hareed' fishing festival.",
+    "Try the local Jazan seafood for a truly authentic culinary experience."
+  ]
+}
