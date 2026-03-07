@@ -7,107 +7,138 @@
   "mountainous": true,
   "average_rating": 4.8,
   "best_time_to_visit": "Winter: December to February / Summer: May to August",
-  "short_description": "Aseer offers a perfect blend of natural beauty and cultural richness, surrounded by towering mountains and lush forests.",
+  "short_description": "A perfect blend of natural beauty and cultural richness.",
   "full_description": "Located in the south of Saudi Arabia, Aseer features stunning mountains and dense forests. Key attractions include Jabal Sawda, Rijal Alma Heritage Village, and the famous Soudah Cable Car. It is an ideal destination for hiking and cultural exploration.",
-  
   "activities_data": {
     "shopping": [
       {
         "id": "asr_shop_1",
         "name": "Al-Rashed Mall",
+        "experience_summary": "One of the most prominent malls in the region with a great variety of shops.",
+        "vibe": "Spacious & Family-friendly",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "Cherry Castle",
         "nearby_restaurant": "Jory Elite",
+        "signature_dish": "International Fusion Cuisine",
+        "top_activity": "Enjoying the indoor entertainment area",
         "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "Jory Elite offers a beautiful atmosphere for dinner with a varied menu."
       },
       {
         "id": "asr_shop_2",
         "name": "Moujan Park",
+        "experience_summary": "A modern open-air shopping destination with unique architecture.",
+        "vibe": "Trendy & Relaxed",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "Sikkath Al-Kaif",
         "nearby_restaurant": "Habka",
+        "signature_dish": "Habka’s Traditional Breakfast",
+        "top_activity": "Strolling through the outdoor plaza",
         "best_time": "Evening",
-        "visited": false
-      },
-      {
-        "id": "asr_shop_3",
-        "name": "Sky Flight",
-        "nearby_area": "Le Premier",
-        "best_time": "Evening",
-        "visited": false
+        "local_tip": "The outdoor seating is spectacular when the fog descends at night."
       }
     ],
     "nature_and_adventure": [
       {
         "id": "asr_nat_1",
         "name": "Jabal Sawda",
-        "activity_type": "Hiking & Panoramic Views",
-        "best_time": "Morning",
-        "visited": false
+        "experience_summary": "The highest peak in Saudi Arabia, covered in juniper trees and mist.",
+        "vibe": "Foggy, Cold & Majestic",
+        "budget": "$ (Free Entrance)",
+        "nearby_cafe": "Mountain Tea Stands",
+        "nearby_restaurant": "Al-Souda Traditional Tents",
+        "signature_dish": "Authentic Haneeth (Slow-cooked lamb)",
+        "top_activity": "Hiking through the fog and riding the Cable Car",
+        "best_time": "Early Morning",
+        "local_tip": "Bring a heavy jacket; it can get very cold even in the middle of summer."
       },
       {
         "id": "asr_nat_2",
         "name": "Al-Hubala Park",
-        "activity_type": "Adventure & Sightseeing",
+        "experience_summary": "Known as the 'Hanging Village', it offers dramatic cliffside views.",
+        "vibe": "Adventurous & Dramatic",
+        "budget": "$$ (Cable Car fee applies)",
+        "nearby_cafe": "Cliffside Coffee Stands",
+        "nearby_restaurant": "Local Heritage Eateries",
+        "signature_dish": "Aseeri Areeka (Honey & Ghee Bread)",
+        "top_activity": "Taking the cable car down to the old hanging village",
         "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "Watch the sunset from the cliff's edge for an unforgettable photo."
       },
       {
         "id": "asr_nat_3",
         "name": "Abha Dam Lake",
-        "activity_type": "Relaxation",
+        "experience_summary": "A serene lake surrounded by greenery and walking paths.",
+        "vibe": "Peaceful & Green",
+        "budget": "$ (Budget-friendly)",
+        "nearby_cafe": "Lake View Cafes",
+        "nearby_restaurant": "Abha Palace Hotel Restaurant",
+        "signature_dish": "Freshly brewed Arabic Coffee and Dates",
+        "top_activity": "Relaxing by the water and boat rides",
         "best_time": "Late Afternoon",
-        "visited": false
+        "local_tip": "Ideal for a quiet evening walk when the weather is mild."
       },
       {
         "id": "asr_nat_4",
         "name": "Honey Hut & Tourist Vineyards",
-        "activity_type": "Nature Exploration",
+        "experience_summary": "Experience the famous Aseer honey and explore lush grape vineyards.",
+        "vibe": "Rustic & Natural",
+        "budget": "$ (Moderate)",
+        "nearby_cafe": "Organic Farm Tea",
+        "nearby_restaurant": "Traditional Farm Kitchens",
+        "signature_dish": "Sider Honey with fresh local bread",
+        "top_activity": "Tasting different types of pure mountain honey",
         "best_time": "Morning",
-        "visited": false
-      },
-      {
-        "id": "asr_nat_5",
-        "name": "Dalgah Park",
-        "activity_type": "Relaxation",
-        "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "Buy some 'Sider' honey as a high-quality local souvenir."
       }
     ],
     "heritage_and_landmarks": [
       {
         "id": "asr_her_1",
         "name": "Rijal Alma Heritage Village",
+        "experience_summary": "The 'Gingerbread Village' famous for its colorful stone palaces.",
+        "vibe": "Ancient & Colorful",
+        "budget": "$ (Affordable Entry)",
         "nearby_area": "Aseeri Museum",
+        "nearby_restaurant": "Rijal Alma Traditional Restaurant",
+        "signature_dish": "Mabthouth (South Saudi Warm Dessert)",
+        "top_activity": "Exploring the 700-year-old stone houses and the museum",
         "best_time": "Morning",
-        "visited": false
+        "local_tip": "The drive down the mountain (Aqabat) is beautiful but requires careful driving."
       },
       {
         "id": "asr_her_2",
         "name": "Al-Muftaha Village",
+        "experience_summary": "The artistic heart of Abha with colorful murals and galleries.",
+        "vibe": "Artistic & Vibrant",
+        "budget": "$ (Free Entrance)",
         "nearby_area": "Al-Basta District",
+        "nearby_restaurant": "Traditional Souq Food",
+        "signature_dish": "Fatir (Traditional Aseeri Flatbread)",
+        "top_activity": "Photography with the famous murals and art studios",
         "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "Visit the nearby Saturday Market (Souq Al-Thulatha) for local crafts."
       },
       {
         "id": "asr_her_3",
         "name": "Abu Khayal Fort",
+        "experience_summary": "A historic fort offering one of the best viewpoints of Abha city.",
+        "vibe": "Historical & Scenic",
+        "budget": "$ (Low)",
         "nearby_area": "Cable Car Station",
+        "nearby_restaurant": "High City Restaurants",
+        "signature_dish": "Local Coffee and Pastries",
+        "top_activity": "Riding the cable car to Jabal Akhdar (Green Mountain)",
         "best_time": "Evening",
-        "visited": false
-      },
-      {
-        "id": "asr_her_4",
-        "name": "Shada Palace",
-        "nearby_area": "Zabna Historical Palace",
-        "best_time": "Morning",
-        "visited": false
+        "local_tip": "Combine this with a visit to High City for a modern night out."
       }
     ]
   },
   "travel_tips": [
-    "Visit Jabal Sawda for breathtaking mountain views.",
-    "Explore Rijal Alma heritage village for cultural immersion.",
-    "Use the cable car in Soudah to enjoy panoramic views.",
-    "Bring a light jacket as the weather can be cool even in summer."
+    "Visit Jabal Sawda for breathtaking mountain views and cool mist.",
+    "Explore Rijal Alma heritage village for deep cultural immersion.",
+    "Use the cable car in Soudah to enjoy panoramic mountain views.",
+    "Bring a light jacket as the weather can be cool even in the middle of summer.",
+    "Try the 'Areeka' for breakfast—it's the fuel you need for mountain hiking!"
   ]
 }

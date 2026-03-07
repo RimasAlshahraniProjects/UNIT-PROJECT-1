@@ -1,95 +1,145 @@
 {
   "id": "alula",
   "name": "AlUla",
-   "terrain": ["Desert", "Rock Formations"],
+  "terrain": ["Desert", "Rock Formations"],
   "climate": "Mild Winter / Warm Desert",
   "coastal": false,
   "mountainous": false,
   "average_rating": 4.9,
   "best_time_to_visit": "November to February",
-  "short_description": "A journey through time where ancient history meets modern art in a stunning desert landscape.",
+  "short_description": "Ancient history meets modern art in a stunning desert landscape.",
   "full_description": "AlUla is a breathtaking destination combining UNESCO heritage sites like Hegra with architectural wonders like Maraya. It offers a unique balance between cultural discovery, adventure, and desert tranquility.",
-  
   "activities_data": {
     "shopping_and_arts": [
       {
         "id": "alu_shop_1",
         "name": "AlJadidah Arts District",
+        "experience_summary": "A walkable vibrant district filled with art galleries, murals, and design shops.",
+        "vibe": "Artistic & Trendy",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "Wacafe",
         "nearby_restaurant": "Somewhere (AlUla)",
+        "signature_dish": "Shrimp Musakhan and Hummus with Pine Nuts",
+        "top_activity": "Walking through the world's largest hand-painted carpet on the street",
         "best_time": "Evening",
-        "visited": false
+        "local_tip": "Visit 'Somewhere' for an outdoor dining experience surrounded by palm trees."
       },
       {
         "id": "alu_shop_2",
         "name": "Old Town Market",
+        "experience_summary": "A traditional market street with local artisans and heritage crafts.",
+        "vibe": "Authentic & Historical",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "Pink Camel (Pastries)",
         "nearby_restaurant": "Suhail Old Town",
+        "signature_dish": "Najdi Lamb Kabsa with AlUla citrus twist",
+        "top_activity": "Buying local dates and citrus products",
         "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "The Pink Camel is famous for their 'Lime and Mint' Macarons; don't miss them!"
       },
       {
         "id": "alu_shop_3",
         "name": "Al Manshiyah Plaza",
-        "nearby_cafe": "Local Coffee Shops",
+        "experience_summary": "A lively community hub where locals and tourists meet for food and entertainment.",
+        "vibe": "Lively & Friendly",
+        "budget": "$ (Budget-friendly)",
+        "nearby_cafe": "Local Specialty Coffee Shops",
         "nearby_restaurant": "Al-Nakheel",
+        "signature_dish": "Traditional Saudi Grill",
+        "top_activity": "Watching local performances in the open plaza",
         "best_time": "Evening",
-        "visited": false
+        "local_tip": "Great place to experience the authentic daily life of AlUla residents."
       }
     ],
     "nature_and_adventure": [
       {
         "id": "alu_nat_1",
         "name": "Elephant Rock (Jabal AlFil)",
-        "activity_type": "Relaxation & Stargazing",
+        "experience_summary": "A massive 52-meter high natural sandstone elephant-shaped formation.",
+        "vibe": "Chill & Cozy",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "SALT (Burger & Coffee)",
+        "nearby_restaurant": "SALT",
+        "signature_dish": "Original Wagyu Sliders",
+        "top_activity": "Stargazing around the fire pits at night",
         "best_time": "Sunset / Night",
-        "visited": false
+        "local_tip": "Go just before sunset to see the rock change colors, then stay for the stars."
       },
       {
         "id": "alu_nat_2",
         "name": "Hegra (Madain Saleh)",
-        "activity_type": "Heritage Tour",
-        "requirement": "Pre-booked Tour",
+        "experience_summary": "The first UNESCO World Heritage site in Saudi Arabia with over 100 Nabataean tombs.",
+        "vibe": "Majestic & Timeless",
+        "budget": "$$$ (Guided Tour Fee)",
+        "requirement": "Pre-booked Tour via Experience AlUla",
+        "nearby_cafe": "Hegra Welcome Center",
+        "nearby_restaurant": "Local Heritage Snacks",
+        "signature_dish": "AlUla Dates and Arabic Coffee",
+        "top_activity": "Taking the Vintage Land Rover tour between the tombs",
         "best_time": "Morning",
-        "visited": false
+        "local_tip": "Wear comfortable walking shoes and bring sunglasses for the desert glare."
       },
       {
         "id": "alu_nat_3",
         "name": "Hot Air Balloon Ride",
-        "activity_type": "Adventure",
+        "experience_summary": "Float over the majestic mountains and heritage sites of AlUla at sunrise.",
+        "vibe": "Pure Adventure & Serenity",
+        "budget": "$$$ (Premium Experience)",
+        "nearby_cafe": "Pre-flight Morning Tea",
+        "nearby_restaurant": "N/A",
+        "signature_dish": "N/A",
+        "top_activity": "Seeing the sunrise over the Hijaz mountains from above",
         "best_time": "Early Morning",
-        "visited": false
+        "local_tip": "This is a seasonal activity (mostly during winter); book months in advance."
       }
     ],
     "heritage_and_landmarks": [
       {
         "id": "alu_her_1",
-        "name": "Maraya Social",
+        "name": "Maraya Building",
+        "experience_summary": "The world's largest mirrored building, reflecting the stunning desert landscape.",
+        "vibe": "Modern & Breathtaking",
+        "budget": "$$$ (Fine Dining)",
         "nearby_area": "Mirrored Building",
+        "nearby_restaurant": "Maraya Social by Jason Atherton",
+        "signature_dish": "Mediterranean-inspired fine dining",
+        "top_activity": "Taking the 'impossible' mirror selfie",
         "best_time": "Sunset",
-        "visited": false
+        "local_tip": "You need a restaurant reservation to enter the Maraya area if you don't have a concert ticket."
       },
       {
         "id": "alu_her_2",
         "name": "Jabal Ikmah",
-        "nearby_area": "Open-air Library (Inscriptions)",
+        "experience_summary": "An open-air library of ancient inscriptions dating back to the Lihyanite kingdom.",
+        "vibe": "Intellectual & Ancient",
+        "budget": "$$ (Guided Tour)",
+        "nearby_area": "Inscriptions Valley",
+        "nearby_restaurant": "Small nearby cafes",
+        "signature_dish": "Local Herbal Tea",
+        "top_activity": "Learning about ancient Arabic writing styles",
         "best_time": "Morning",
-        "visited": false
+        "local_tip": "The lighting in the morning is perfect for seeing the deep carvings in the rocks."
       },
       {
         "id": "alu_her_3",
         "name": "AlUla Old Town",
-        "nearby_area": "900 Mudbrick Houses",
+        "experience_summary": "A labyrinth of 900 mud-brick houses and a 10th-century castle.",
+        "vibe": "Nostalgic & Enchanting",
+        "budget": "$$ (Guided Tour)",
+        "nearby_area": "Heritage Alleys",
+        "nearby_restaurant": "Traditional House Restaurants",
+        "signature_dish": "Madrouba and traditional AlUla bread",
+        "top_activity": "Climbing up to the AlUla Castle for a view of the oasis",
         "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "The guided 'rawi' tour is the best way to hear the real stories of the families who lived here."
       }
     ]
   },
   "travel_tips": [
     "Book heritage tours (Hegra, Dadan) in advance as they sell out quickly.",
-    "Visit Maraya during sunset to see the building disappear into the mountains.",
+    "Visit Maraya during sunset to see the building 'disappear' into the mountains.",
     "The desert gets cold at night during winter; always carry a warm jacket.",
-    "AlJadidah is best explored on foot to enjoy the street art and galleries."
+    "AlJadidah is best explored on foot to enjoy the street art and galleries.",
+    "Respect the silence of the desert; it's part of the AlUla magic."
   ]
 }

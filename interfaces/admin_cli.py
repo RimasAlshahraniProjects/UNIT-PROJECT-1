@@ -1,96 +1,241 @@
+import os
+import json
+import time
 
-from config.settings import ADMIN_PASSWORD, MAX_LOGIN_ATTEMPTS
-from core.services_manager import (
-    create_category,
-    add_service,
-    delete_service,
-    get_services_by_category,
-    get_all_categories
-)
+class AdminInterface:
+    def __init__(self, data_folder, ui_tools):
+        self.data_folder = data_folder
+        self.ui = ui_tools
+        # Why a hardcoded password? For this MVP, it acts as a simple 
+        # Access Control Layer to protect the JSON database.
+        self.admin_password = "saudi2030" 
 
+    def authenticate(self):
+        """
+        Why Authentication? To ensure that sensitive data operations 
+        (like adding new destinations) are only performed by authorized staff.
+        """
+        self.ui.clear_screen()
+        self.ui.show_header("Admin Access Control")
+        
+        attempts = 3
+        while attempts > 0:
+            password = input(f"🔑 Enter Admin Password ({attempts} attempts left): ").strip()
+            
+            if password == self.admin_password:
+                print("\n✅ Access Granted!")
+                time.sleep(1)
+                return True
+            else:
+                attempts -= 1
+                if attempts > 0:
+                    print(f"❌ Incorrect Password. Try again.")
+        
+        print("\n⚠️ Access Denied: Too many failed attempts.")
+        input("Press Enter to return to main menu...")
+        return False
 
-def check_admin_access():
-    """Check admin password with limited attempts"""
-    attempts = 0
+    def manage_data(self):
+        """
+        The main control hub for the Admin. It branches into Create, 
+        Update, or Delete operations based on the employee's needs.
+        """
+        if not self.authenticate():
+            return
 
-    while attempts < MAX_LOGIN_ATTEMPTS:
-        password = input("Enter admin password: ").strip()
+        while True:
+            self.ui.clear_screen()
+            self.ui.show_header("Admin: Data Management")
+            print("What would you like to do?")
+            print("1- Register a New City (Create JSON)")
+            print("2- Add a Category/Activity to an existing city")
+            print("3- DELETE Data (City, Category, or Activity)")
+            print("4- Back to Main Menu")
 
-        if password == ADMIN_PASSWORD:
-            return True
+            choice = self.ui.get_number_choice(4)
 
-        attempts += 1
-        print(f"Wrong password! Attempts left: {MAX_LOGIN_ATTEMPTS - attempts}")
-
-    print("Too many failed attempts. Try again later.")
-    return False
-
-
-def admin_menu():
-    if not check_admin_access():
-        return
-
-    while True:
-        print("\n=== Admin Control Panel ===")
-        print("1 - Create New Category")
-        print("2 - Add Service to Existing Category")
-        print("3 - Delete Service")
-        print("4 - View Services by Category")
-        print("5 - Exit")
-
-        choice = input("Choose an option: ").strip()
-
-        match choice:
-
-            case "1":
-                category = input("Enter new category name: ").strip()
-                success, message = create_category(category)
-                print(message)
-
-            case "2":
-                categories = get_all_categories()
-                if not categories:
-                    print("No categories available.")
-                    continue
-
-                print("\nAvailable Categories:")
-                for cat in categories:
-                    print(f"- {cat}")
-
-                category = input("Choose category: ").strip()
-                name = input("Enter service name: ").strip()
-                value = input("Enter service link or number: ").strip()
-
-                success, message = add_service(category, name, value)
-                print(message)
-
-            case "3":
-                category = input("Enter category: ").strip()
-                name = input("Enter service name to delete: ").strip()
-
-                confirm = input("Are you sure? (yes/no): ").lower()
-                if confirm == "yes":
-                    success, message = delete_service(category, name)
-                    print(message)
-                else:
-                    print("Deletion cancelled.")
-
-            case "4":
-                category = input("Enter category to view: ").strip()
-                services = get_services_by_category(category)
-
-                if services:
-                    print(f"\n--- {category} ---")
-                    for s_name, details in services.items():
-                        print(f"{s_name} → {details['value']} (Added: {details['created_at']})")
-                else:
-                    print("No services found.")
-
-            case "5":
-                print("Exiting Admin Panel...")
+            if choice == 0:
+                self.register_new_city()
+            elif choice == 1:
+                self.sub_menu_add()
+            elif choice == 2:
+                self.delete_data_menu()
+            else:
                 break
 
-            case _:
-                print("Invalid choice.")
+    # --- SECTION: CREATE (New City) ---
+    def register_new_city(self):
+        self.ui.clear_screen()
+        self.ui.show_header("Register New City")
+        name = input("📍 City Name: ").strip()
+        if not name: return
+        
+        city_id = name.lower().replace(" ", "_")
+        file_path = os.path.join(self.data_folder, f"{city_id}.json")
+        
+        if os.path.exists(file_path):
+            print("⚠️ This city already exists in the database!")
+            input("Press Enter to continue...")
+            return
 
+        new_city_data = {
+            "id": city_id,
+            "name": name,
+            "terrain": [input("🌍 Terrain (e.g., Coastal, Mountain): ").strip()],
+            "climate": "Moderate",
+            "average_rating": "5.0",
+            "short_description": input("📝 Short Description: ").strip(),
+            "full_description": input("📖 Full Description: ").strip(),
+            "best_time_to_visit": input("📅 Best Time to Visit: ").strip(),
+            "activities_data": {},
+            "travel_tips": ["Carry your ID at all times."]
+        }
+        self.save_json(file_path, new_city_data)
 
+    # --- SECTION: UPDATE (Add Category/Activity) ---
+    def sub_menu_add(self):
+        self.ui.clear_screen()
+        self.ui.show_header("Add Details to Existing City")
+        print("1- Add a New Category (e.g., Nature, Shopping)")
+        print("2- Add a New Activity to an existing category")
+        print("3- Cancel")
+        
+        choice = self.ui.get_number_choice(3)
+        if choice == 0: self.add_new_category()
+        elif choice == 1: self.add_new_activity()
+
+    def add_new_category(self):
+        city_data, file_path = self.select_existing_city()
+        if not city_data: return
+
+        new_cat = input("📁 Enter New Category Name: ").strip()
+        if new_cat in city_data["activities_data"]:
+            print("⚠️ Category already exists!")
+        else:
+            city_data["activities_data"][new_cat] = []
+            self.save_json(file_path, city_data)
+
+    def add_new_activity(self):
+        city_data, file_path = self.select_existing_city()
+        if not city_data: return
+
+        categories = list(city_data["activities_data"].keys())
+        if not categories:
+            print("⚠️ No categories found. Please add a category first.")
+            input("Press Enter..."); return
+
+        print("\nSelect Category:")
+        for i, cat in enumerate(categories, 1): print(f"{i}- {cat}")
+        cat_idx = self.ui.get_number_choice(len(categories))
+        selected_cat = categories[cat_idx]
+
+        new_act = {
+            "name": input("📍 Activity Name: "),
+            "vibe": input("✨ Vibe: "),
+            "budget": "Medium",
+            "experience_summary": input("📝 Summary: "),
+            "local_tip": "Check opening hours before visiting."
+        }
+        
+        city_data["activities_data"][selected_cat].append(new_act)
+        self.save_json(file_path, city_data)
+
+    # --- SECTION: DELETE ---
+    def delete_data_menu(self):
+        """
+        Why a deletion menu? To give the admin full control over the 
+        database integrity, allowing for the removal of outdated info.
+        """
+        self.ui.clear_screen()
+        self.ui.show_header("Delete Data Control")
+        print("1- Delete an Entire City (Permanent)")
+        print("2- Delete a Category from a city")
+        print("3- Delete a Specific Activity")
+        print("4- Cancel")
+
+        choice = self.ui.get_number_choice(4)
+        if choice == 0: self.delete_entire_city()
+        elif choice == 1: self.delete_category()
+        elif choice == 2: self.delete_activity()
+
+    def delete_entire_city(self):
+        files = [f for f in os.listdir(self.data_folder) if f.endswith('.json')]
+        if not files: return
+        
+        print("\nSelect City to DELETE:")
+        for i, f in enumerate(files, 1): print(f"{i}- {f.replace('.json', '').title()}")
+        idx = self.ui.get_number_choice(len(files))
+        file_path = os.path.join(self.data_folder, files[idx])
+        
+        confirm = input(f"⚠️ Are you sure you want to delete {files[idx]}? (yes/no): ").lower()
+        if confirm == 'yes':
+            os.remove(file_path)
+            print("🗑️ City deleted successfully.")
+            input("Press Enter to continue...")
+
+    def delete_category(self):
+        city_data, file_path = self.select_existing_city()
+        if not city_data: return
+
+        categories = list(city_data["activities_data"].keys())
+        if not categories: return
+
+        print("\nSelect Category to DELETE:")
+        for i, cat in enumerate(categories, 1): print(f"{i}- {cat}")
+        idx = self.ui.get_number_choice(len(categories))
+        selected_cat = categories[idx]
+
+        confirm = input(f"⚠️ Delete ALL activities in '{selected_cat}'? (yes/no): ").lower()
+        if confirm == 'yes':
+            del city_data["activities_data"][selected_cat]
+            self.save_json(file_path, city_data)
+
+    def delete_activity(self):
+        city_data, file_path = self.select_existing_city()
+        if not city_data: return
+
+        categories = list(city_data["activities_data"].keys())
+        if not categories: return
+
+        print("\nSelect Category:")
+        for i, cat in enumerate(categories, 1): print(f"{i}- {cat}")
+        cat_idx = self.ui.get_number_choice(len(categories))
+        selected_cat = categories[cat_idx]
+
+        activities = city_data["activities_data"][selected_cat]
+        if not activities: 
+            print("No activities to delete."); input("Enter..."); return
+
+        print("\nSelect Activity to DELETE:")
+        for i, act in enumerate(activities, 1): print(f"{i}- {act['name']}")
+        act_idx = self.ui.get_number_choice(len(activities))
+        
+        del city_data["activities_data"][selected_cat][act_idx]
+        self.save_json(file_path, city_data)
+
+    # --- SECTION: HELPERS ---
+    def select_existing_city(self):
+        files = [f for f in os.listdir(self.data_folder) if f.endswith('.json')]
+        if not files: 
+            print("No cities found."); input("Enter..."); return None, None
+        
+        print("\nSelect City:")
+        for i, f in enumerate(files, 1): print(f"{i}- {f.replace('.json', '').title()}")
+        city_idx = self.ui.get_number_choice(len(files))
+        file_path = os.path.join(self.data_folder, files[city_idx])
+        
+        with open(file_path, 'r', encoding='utf-8') as f:
+            return json.load(f), file_path
+
+    def save_json(self, path, data):
+        """
+        Standardizes the way JSON files are saved to ensure 
+        encoding and indentation are consistent across the system.
+        """
+        try:
+            with open(path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=4, ensure_ascii=False)
+            print("\n✅ Database Updated Successfully!")
+        except Exception as e:
+            print(f"\n❌ Failed to save: {e}")
+        input("Press Enter to continue...")

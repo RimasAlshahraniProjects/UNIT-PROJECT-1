@@ -1,99 +1,156 @@
 {
   "id": "jeddah",
   "name": "Jeddah",
-   "terrain": ["Coastal", "Urban"],
+  "terrain": ["Coastal", "Urban"],
   "climate": "Warm / Mild Winter",
   "coastal": true,
   "mountainous": false,
   "average_rating": 4.6,
   "best_time_to_visit": "October to April",
-  "short_description": "Jeddah is a coastal city blending coral architecture with modern waterfronts.",
+  "short_description": "A coastal city blending coral architecture with modern waterfronts.",
   "full_description": "Jeddah, historically the gateway for pilgrims and traders, combines heritage architecture with modern coastal areas. It offers stunning beaches, historical districts like Al-Balad, and a rich culinary scene.",
-  
   "activities_data": {
     "shopping": [
       {
         "id": "jed_shop_1",
         "name": "Red Sea Mall",
+        "experience_summary": "One of the biggest and most popular malls in Jeddah with a massive variety of brands.",
+        "vibe": "Buzzing & Vast",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "Brew 92",
         "nearby_restaurant": "Shezan Indian Restaurant",
+        "signature_dish": "Chicken Tikka Masala and Garlic Naan",
+        "top_activity": "Explore the local designer's section",
         "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "Brew 92 is a legendary local coffee roastery; don't leave without trying their flat white."
       },
       {
         "id": "jed_shop_2",
         "name": "Jeddah Park",
+        "experience_summary": "A new architectural masterpiece offering a mix of shopping and luxury interior design.",
+        "vibe": "Modern & Artistic",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "Pause Cafe",
         "nearby_restaurant": "Ketchup",
+        "signature_dish": "Gourmet Burgers and Seasoned Fries",
+        "top_activity": "Visit the stunning indoor fountain and art installations",
         "best_time": "Evening",
-        "visited": false
+        "local_tip": "The mall is very spacious, perfect for a long walk away from the humidity."
       },
       {
         "id": "jed_shop_3",
         "name": "Jeddah Boulevard",
+        "experience_summary": "An open-air luxury destination for high-end fashion and elite dining.",
+        "vibe": "Luxury & High-End",
+        "budget": "$$$ (Premium)",
         "nearby_cafe": "Baco",
         "nearby_restaurant": "The Cheesecake Factory",
+        "signature_dish": "Godiva Chocolate Cheesecake",
+        "top_activity": "Dining at the upscale terraces",
         "best_time": "Evening",
-        "visited": false
+        "local_tip": "Baco offers a unique Asian-Latin fusion; try their tacos for a quick bite."
       }
     ],
     "nature_and_beach": [
       {
         "id": "jed_nat_1",
         "name": "White Island",
-        "activity_type": "Beach & Water Activities",
+        "experience_summary": "A hidden gem for boat trips and crystal clear waters.",
+        "vibe": "Tropical & Adventurous",
+        "budget": "$$$ (Boat Rental Required)",
+        "nearby_cafe": "N/A (Bring your own Roastery)",
+        "nearby_restaurant": "Seafood BBQ on boat",
+        "signature_dish": "Fresh Catch of the day",
+        "top_activity": "Snorkeling and swimming in turquoise water",
         "best_time": "Morning",
-        "visited": false
+        "local_tip": "Book a private boat from Obhur early in the morning for the best experience."
       },
       {
         "id": "jed_nat_2",
         "name": "Corniche Park",
-        "activity_type": "Relaxation & Sightseeing",
+        "experience_summary": "The newly developed waterfront with running tracks and sea views.",
+        "vibe": "Refreshing & Social",
+        "budget": "$ (Free)",
+        "nearby_cafe": "Barn's",
+        "nearby_restaurant": "Al-Wada'a",
+        "signature_dish": "Mixed Seafood Platter",
+        "top_activity": "Cycling or jogging at sunset",
         "best_time": "Late Afternoon",
-        "visited": false
+        "local_tip": "Rent a bike and ride towards the new sculptures area."
       },
       {
         "id": "jed_nat_3",
         "name": "Al-Abhur Creek",
-        "activity_type": "Water Activities",
-        "best_time": "Morning",
-        "visited": false
+        "experience_summary": "The heart of Jeddah's water sports and private beach resorts.",
+        "vibe": "Vibrant & Nautical",
+        "budget": "$$ (Moderate)",
+        "nearby_cafe": "Medd Cafe",
+        "nearby_restaurant": "Twina Seafood",
+        "signature_dish": "Fried Najil (Red Sea Grouper)",
+        "top_activity": "Jet skiing or a sunset boat cruise",
+        "best_time": "Morning or Sunset",
+        "local_tip": "Twina is the best place to experience authentic Jeddawi fried fish."
       }
     ],
     "heritage_and_landmarks": [
       {
         "id": "jed_her_1",
         "name": "Historic Al-Balad",
+        "experience_summary": "A UNESCO World Heritage site with ancient coral-stone houses.",
+        "vibe": "Nostalgic & Spiritual",
+        "budget": "$ (Low)",
         "nearby_area": "Dar Al-Funun",
-        "best_time": "Afternoon",
-        "visited": false
+        "nearby_restaurant": "Historical Nights Cafe",
+        "signature_dish": "Mutabbaq and Ma'asoub",
+        "top_activity": "Walking through the narrow alleys and Roshan balconies",
+        "best_time": "Afternoon / Evening",
+        "local_tip": "Try the 'Sobia' drink during your walk; it's a traditional Jeddawi favorite."
       },
       {
         "id": "jed_her_2",
         "name": "King Fahd Fountain",
+        "experience_summary": "The tallest fountain of its kind in the world, an iconic symbol of Jeddah.",
+        "vibe": "Iconic & Romantic",
+        "budget": "$ (Free)",
         "nearby_area": "Jeddah Corniche",
+        "nearby_restaurant": "Culture Cafe & Lounge",
+        "signature_dish": "Arabic Coffee and Sweets",
+        "top_activity": "Watching the fountain lighting show at night",
         "best_time": "Night",
-        "visited": false
+        "local_tip": "The best view is from the Ritz-Carlton or the nearby public seating area at night."
       },
       {
         "id": "jed_her_3",
         "name": "Islamic Arts Center",
+        "experience_summary": "A cultural hub showcasing the beauty and history of Islamic calligraphy and arts.",
+        "vibe": "Educational & Quiet",
+        "budget": "$ (Affordable)",
         "nearby_area": "Cultural Exploration",
+        "nearby_restaurant": "Local traditional eateries",
+        "signature_dish": "Traditional Saudi Coffee",
+        "top_activity": "Explore the rare collection of manuscripts",
         "best_time": "Morning",
-        "visited": false
+        "local_tip": "Check for workshops if you're interested in learning calligraphy."
       },
       {
         "id": "jed_her_4",
         "name": "Jeddah Art Walk",
+        "experience_summary": "A modern outdoor art gallery by the sea featuring food trucks and lights.",
+        "vibe": "Trendy & Neon",
+        "budget": "$ (Free Entrance)",
         "nearby_area": "Modern Sightseeing",
+        "nearby_restaurant": "Section-B (Burgers)",
+        "signature_dish": "The 'B' Burger",
+        "top_activity": "Photoshoot with the neon art installations",
         "best_time": "Evening",
-        "visited": false
+        "local_tip": "Section-B is widely considered the best burger spot in the city; expect a queue!"
       }
     ]
   },
   "travel_tips": [
-    "Explore Al-Balad for its unique coral-stone architecture.",
-    "Visit the Corniche for scenic walks and leisure.",
-    "The King Fahd Fountain is a must-see landmark, especially at night."
+    "Explore Al-Balad for its unique coral-stone architecture and ancient vibes.",
+    "The humidity can be high; always carry water and wear light fabrics.",
+    "King Fahd Fountain is best viewed from the Corniche after 7 PM.",
+    "Use 'Barn's' for a quick, reliable local coffee fix while driving."
   ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "riyadh",
   "name": "Riyadh",
-  "terrain": ["urban", "desert", "oasis"],
+  "terrain": ["Urban", "Desert", "Oasis"],
   "climate": "Hot Desert / Mild Winter",
   "coastal": false,
   "mountainous": false,
@@ -9,108 +9,161 @@
   "best_time_to_visit": "Winter: November to March",
   "short_description": "The beating heart of the Kingdom, where Najdi heritage meets modern skyscrapers.",
   "full_description": "Riyadh is the capital of Saudi Arabia, blending modern urban development with rich cultural and historical sites. It offers a unique experience for luxury lovers, desert explorers, and mountain adventurers.",
-  
   "activities_data": {
     "shopping": [
       {
         "id": "ryd_shop_1",
         "name": "Riyadh Park",
+        "experience_summary": "A premier luxury mall with a stunning outdoor plaza and international brands.",
+        "vibe": "Vibrant & Family Friendly",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "Half Million",
         "nearby_restaurant": "Texas Roadhouse",
+        "signature_dish": "The legendary fresh Honey Butter Rolls",
+        "top_activity": "Visit the Museum of Illusions",
         "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "Parking can be crowded on weekends, try to arrive before 4 PM."
       },
       {
         "id": "ryd_shop_2",
         "name": "Nakheel Mall",
+        "experience_summary": "One of Riyadh's most elegant malls with premium brands and a sophisticated atmosphere.",
+        "vibe": "Upscale & Elegant",
+        "budget": "$$$ (Premium)",
         "nearby_cafe": "Brew Crew",
-        "nearby_restaurant": "Lusin",
+        "nearby_restaurant": "Lusin (Armenian)",
+        "signature_dish": "Cherry Kebab and Pumpkin Kibbeh",
+        "top_activity": "Explore the luxury fashion wing",
         "best_time": "Evening",
-        "visited": false
+        "local_tip": "Perfect for a quiet, high-end shopping experience away from the noise."
       },
       {
         "id": "ryd_shop_3",
         "name": "Granada Mall",
+        "experience_summary": "A huge shopping complex with a unique architectural ceiling and a massive expansion.",
+        "vibe": "Spacious & Diverse",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "Joe & The Juice",
-        "nearby_restaurant": "Piatto",
+        "nearby_restaurant": "Piatto (Italian)",
+        "signature_dish": "Fresh Rosemary Focaccia and Fettuccine",
+        "top_activity": "Walk through the newly expanded 'Granada Square'",
         "best_time": "Evening",
-        "visited": false
+        "local_tip": "The new outdoor square has the best atmosphere for coffee and people-watching."
       }
     ],
     "nature_and_adventure": [
       {
         "id": "ryd_nat_1",
         "name": "Wadi Namar",
-        "activity_type": "Relaxation",
-        "nearby_cafe": "Food Trucks",
+        "experience_summary": "A peaceful valley with a large industrial lake and waterfall.",
+        "vibe": "Serene & Refreshing",
+        "budget": "$ (Budget-friendly)",
+        "nearby_cafe": "Local Food Trucks",
+        "nearby_restaurant": "Picnic areas",
+        "signature_dish": "Traditional Hijazi Balila (from street vendors)",
+        "top_activity": "Stroll along the 2km dam walkway",
         "best_time": "Late Afternoon",
-        "visited": false
+        "local_tip": "Great for families; bring your own chairs for a better seating spot near the lake."
       },
       {
         "id": "ryd_nat_2",
         "name": "Al-Watan Park",
-        "activity_type": "Sightseeing",
+        "experience_summary": "A landmark park featuring a large map of Saudi Arabia and the Riyadh Water Tower.",
+        "vibe": "Historical & Recreational",
+        "budget": "$ (Affordable)",
         "nearby_cafe": "Tower Cafe",
+        "nearby_restaurant": "Local Snack Stalls",
+        "signature_dish": "Saudi Coffee and Dates",
+        "top_activity": "Take a photo with the iconic Water Tower",
         "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "Check if the tower is open for a panoramic view of old Riyadh."
       },
       {
         "id": "ryd_nat_3",
-        "name": "Hit Cave",
-        "activity_type": "Adventure & Swimming",
+        "name": "Hit Cave (Ain Heet)",
+        "experience_summary": "An adventurous underground lake inside a limestone cave.",
+        "vibe": "Mysterious & Adventurous",
+        "budget": "$ (Free Entrance)",
+        "nearby_cafe": "N/A (Remote Location)",
+        "nearby_restaurant": "Pack your own food",
+        "signature_dish": "Self-brought BBQ or Snacks",
+        "top_activity": "Swimming in the clear turquoise cave water",
         "best_time": "Morning",
-        "visited": false
+        "local_tip": "Wear sturdy hiking shoes; the descent into the cave is slippery."
       },
       {
         "id": "ryd_nat_4",
-        "name": "Edge of the World",
-        "activity_type": "Hiking & Adventure",
-        "best_time": "Early Morning",
-        "visited": false
+        "name": "Edge of the World (Jabal Tuwaiq)",
+        "experience_summary": "Breathtaking cliffs with an endless view of the desert horizon.",
+        "vibe": "Majestic & Quiet",
+        "budget": "$$ (Requires 4x4 car)",
+        "nearby_cafe": "Desert Camp Coffee",
+        "nearby_restaurant": "Traditional BBQ",
+        "signature_dish": "Campfire Grilled Lamb",
+        "top_activity": "Hiking to the highest cliff point",
+        "best_time": "Early Morning / Sunrise",
+        "local_tip": "Safety first: You MUST go in a 4x4 vehicle and leave the area before sunset."
       }
     ],
     "heritage_and_landmarks": [
       {
         "id": "ryd_her_1",
         "name": "Masmak Fort",
+        "experience_summary": "The historical clay fortress that marks the start of the modern Saudi state.",
+        "vibe": "Historical & Grand",
+        "budget": "$ (Affordable)",
         "nearby_area": "Al-Dirah Historic District",
+        "nearby_restaurant": "Najd Village",
+        "signature_dish": "Jareesh and Hashi Kabsa",
+        "top_activity": "Guided tour inside the museum",
         "best_time": "Morning",
-        "visited": false
+        "local_tip": "Don't miss the incense (Oud) smells at Souq Al-Zal next door."
       },
       {
         "id": "ryd_her_2",
         "name": "Al-Faisaliah Tower",
+        "experience_summary": "One of Riyadh's first skyscrapers with a distinctive golden globe.",
+        "vibe": "Luxury & Iconic",
+        "budget": "$$$ (Premium)",
         "nearby_cafe": "The Globe",
+        "nearby_restaurant": "Mamo Michelangelo",
+        "signature_dish": "Truffle Pasta and Italian Desserts",
+        "top_activity": "Dinner inside 'The Globe' for a 360-view",
         "best_time": "Evening",
-        "visited": false
+        "local_tip": "Booking in advance is a must for the restaurants at the top."
       },
       {
         "id": "ryd_her_3",
         "name": "Kingdom Center",
+        "experience_summary": "The most famous landmark in Riyadh with a unique 'bottle opener' shape.",
+        "vibe": "Modern & High-End",
+        "budget": "$$ (Sky Bridge fee applies)",
         "nearby_area": "Sky Bridge",
+        "nearby_restaurant": "Spazio (77th floor)",
+        "signature_dish": "Seafood Linguine",
+        "top_activity": "Walk on the Sky Bridge at night",
         "best_time": "Evening",
-        "visited": false
+        "local_tip": "Go on a clear night for the best view of the city lights."
       },
       {
         "id": "ryd_her_4",
         "name": "Boulevard City",
-        "nearby_area": "Entertainment & Dining",
+        "experience_summary": "The largest entertainment complex featuring international zones and shows.",
+        "vibe": "Electrifying & High-Energy",
+        "budget": "$$$ (Premium)",
+        "nearby_cafe": "Doz Coffee",
+        "nearby_restaurant": "Public",
+        "signature_dish": "Truffle Pizza and Mocktails",
+        "top_activity": "Watching the musical fountain show",
         "best_time": "Night",
-        "visited": false
-      },
-      {
-        "id": "ryd_her_5",
-        "name": "Old Riyadh Village",
-        "nearby_area": "Cultural Exploration",
-        "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "Check the 'Webook' app for entry tickets; some zones are free during certain seasons."
       }
     ]
   },
   "travel_tips": [
-    "Visit during Riyadh Season for world-class events.",
+    "Visit during Riyadh Season (Winter) for world-class events and festivals.",
     "Explore historic districts like Al-Masmak for cultural insight.",
-    "Use ride-hailing apps like Uber or Careem for easy transportation.",
+    "Use ride-hailing apps like Uber or Careem to navigate traffic.",
     "Book luxury restaurants in advance using 'MyTable' or 'TheFork' apps."
   ]
 }

@@ -1,48 +1,49 @@
 import os
 import json
-# Importing the UserInterface class from our custom module
+# We import the UserInterface to keep the logic (App) separate from the visual display (UI).
 from interfaces.user_cli import UserInterface
+# New Import: Bringing in the AdminInterface to handle Employee logic separately.
+from interfaces.admin_cli import AdminInterface
 
 class SaudiTravelApp:
     def __init__(self):
-        """
-        Constructor: Initializes the application settings.
-        Sets the data folder path and creates an instance of the UI.
-        """
+        # We define a specific folder for data to make the system modular. 
         self.data_folder = 'data'
         self.cities = []
         self.ui = UserInterface()
+        # Initialize the AdminInterface by passing the data folder and UI tools.
+        self.admin = AdminInterface(self.data_folder, self.ui)
 
     def load_data(self):
         """
-        Dynamic Data Loading: Reads all JSON files from the 'data' folder.
-        This approach avoids hard-coding city names and allows the app to scale.
+        Why this logic? To ensure the system is 'Self-Healing'.
+        It filters out corrupted files and only loads valid city structures.
         """
-        self.cities = [] # Reset the list to ensure data is fresh
+        self.cities = [] 
         
-        # Check if the data directory exists to prevent runtime errors
         if not os.path.exists(self.data_folder):
             os.makedirs(self.data_folder)
             return False
         
-        # Iterate through all files in the 'data' directory
         for file in os.listdir(self.data_folder):
             if file.endswith('.json'):
                 path = os.path.join(self.data_folder, file)
-                # Opening files with utf-8 encoding to support Arabic text
                 with open(path, 'r', encoding='utf-8') as f:
                     try:
-                        self.cities.append(json.load(f))
+                        data = json.load(f)
+                        if isinstance(data, dict) and 'name' in data and 'id' in data:
+                            self.cities.append(data)
+                        else:
+                            print(f"⚠️ Skipping {file}: Integrity check failed.")
                     except json.JSONDecodeError:
-                        print(f"⚠️ Warning: Failed to decode {file}. Skipping...")
+                        print(f"⚠️ Warning: {file} is corrupted. Skipping.")
         
-        # Return True if cities were loaded, False otherwise
         return True if self.cities else False
 
     def start_system(self):
         """
-        The Master Controller: Manages the main menu and directs users 
-        based on their role (Tourist or Employee).
+        The Entry Point: This acts as the 'Router'. 
+        It manages the user's journey based on their identity and needs.
         """
         while True:
             self.ui.clear_screen()
@@ -53,34 +54,26 @@ class SaudiTravelApp:
             print("2. Employee (Admin Dashboard)")
             print("3. Exit System")
             
-            # Using our custom validation function to handle user input
             choice_idx = self.ui.get_number_choice(3) 
 
-            if choice_idx == 0: # Option 1: Tourist
-                # Reload data every time a tourist enters to get the latest updates
+            if choice_idx == 0: 
+                # Tourist Path: Reload data to ensure the most recent updates are visible.
                 if self.load_data():
                     self.ui.run_user_experience(self.cities)
                 else:
-                    print("\n⚠️ System Error: No destination data found.")
-                    print("Please ensure JSON files exist in the 'data/' folder.")
-                    input("\nPress Enter to return to Main Menu...")
+                    print("\n⚠️ Database Empty: No valid city files found in 'data/'.")
+                    input("\nPress Enter to return...")
             
-            elif choice_idx == 1: # Option 2: Admin/Employee
-                self.admin_placeholder()
+            elif choice_idx == 1: 
+                # Employee Path: Redirect to the new multi-function Admin Hub.
+                # This now includes Authentication, Create, Update, and Delete functions.
+                self.admin.manage_data()
                 
-            elif choice_idx == 2: # Option 3: Exit
+            elif choice_idx == 2: 
                 print("\n🌟 Thank you for visiting Saudi Arabia! Safe travels.")
                 break
 
-    def admin_placeholder(self):
-        """Temporary placeholder for the Admin module."""
-        self.ui.clear_screen()
-        self.ui.show_header("Admin Dashboard")
-        print("\n🛠️ Admin Logic (Add/Edit Destinations) is under development.")
-        print("This module will allow employees to update the city database.")
-        input("\nPress Enter to return to main menu...")
-
-# Execution point of the application
+# The main block ensures this script only runs when executed directly.
 if __name__ == "__main__":
     app = SaudiTravelApp()
     app.start_system()

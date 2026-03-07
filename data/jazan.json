@@ -9,72 +9,109 @@
   "best_time_to_visit": "Winter: December to February (Festivals) / Summer: June to August (Islands)",
   "short_description": "A southern gem where turquoise islands meet misty green mountains.",
   "full_description": "Jazan is famous for its stunning Red Sea coastline, the enchanting Farasan Islands, and the lush green heights of Jabal Fifa. It offers unique experiences from scuba diving in coral reefs to exploring ancient forts.",
-  
   "activities_data": {
     "shopping": [
       {
         "id": "jaz_shop_1",
         "name": "Kadi Mall",
+        "experience_summary": "One of the largest malls in Jazan, featuring a mix of international and local brands.",
+        "vibe": "Spacious & Modern",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "Lavinda Cafe",
-        "nearby_restaurant": "The Pearl (Seafood Restaurant)",
+        "nearby_restaurant": "The Pearl (Seafood)",
+        "signature_dish": "Grilled Lobster and Sea Bass",
+        "top_activity": "Shopping for traditional Jazan jasmine crowns (Fula) outside the mall",
         "best_time": "Evening",
-        "visited": false
+        "local_tip": "The Pearl is great for families; ask for the catch of the day."
       },
       {
         "id": "jaz_shop_2",
         "name": "Al-Rashed Mall (Jazan)",
+        "experience_summary": "A popular shopping destination with many entertainment options and cafes.",
+        "vibe": "Lively & Vibrant",
+        "budget": "$$ (Moderate)",
         "nearby_cafe": "Overdose Coffee",
         "nearby_restaurant": "Applebee's",
+        "signature_dish": "Overdose Specialty Spanish Latte",
+        "top_activity": "Catching up with friends in the coffee lounge",
         "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "Perfect place to escape the afternoon heat and enjoy some shopping."
       }
     ],
     "nature_and_adventure": [
       {
         "id": "jaz_nat_1",
         "name": "Farasan Islands Reserve",
-        "activity_type": "Diving, Snorkeling & Fishing",
-        "requirement": "Boat Booking Required",
+        "experience_summary": "An archipelago of over 170 islands known for white sands and coral reefs.",
+        "vibe": "Tropical & Exotic",
+        "budget": "$$ (Ferry is free, but boat rentals vary)",
+        "nearby_cafe": "Local Traditional Tea Stands",
+        "nearby_restaurant": "Farasan Fish Market Restaurants",
+        "signature_dish": "Sifi Fish (Local dried fish delicacy)",
+        "top_activity": "Snorkeling in the crystal clear turquoise waters",
         "best_time": "Morning",
-        "visited": false
+        "local_tip": "Book your free ferry ticket from the Jazan Port 24 hours in advance."
       },
       {
         "id": "jaz_nat_2",
-        "name": "Jabal Fifa",
-        "activity_type": "Mountain Exploration & Hiking",
+        "name": "Jabal Fifa (The Neighbors of the Moon)",
+        "experience_summary": "Lush green mountains with ancient terraces carved into the steep slopes.",
+        "vibe": "Misty, Green, and Serene",
+        "budget": "$ (Budget-friendly)",
+        "nearby_cafe": "Mountain View Tea Stands",
+        "nearby_restaurant": "Local Farm Eateries",
+        "signature_dish": "Khawlani Coffee (World-class quality)",
+        "top_activity": "Taking photos of the cylindrical heritage houses",
         "best_time": "Early Morning",
-        "visited": false
+        "local_tip": "Hire a local driver with a 4x4; the roads are extremely steep and curvy."
       },
       {
         "id": "jaz_nat_3",
         "name": "Jazan Corniche",
-        "activity_type": "Relaxation & Family Walks",
+        "experience_summary": "A beautiful coastal stretch with parks, playgrounds, and sea views.",
+        "vibe": "Refreshing & Family-Friendly",
+        "budget": "$ (Free)",
         "nearby_cafe": "Sea View Cafes",
+        "nearby_restaurant": "Zaman Seafood",
+        "signature_dish": "Mifa Fish (Roasted in a traditional clay oven)",
+        "top_activity": "Watching the sunset over the Red Sea",
         "best_time": "Late Afternoon",
-        "visited": false
+        "local_tip": "Try the 'Mifa' fish at local spots for the most authentic Jazan taste."
       }
     ],
     "heritage_and_landmarks": [
       {
         "id": "jaz_her_1",
         "name": "Jazan Heritage Village",
+        "experience_summary": "A living museum showcasing the diverse architecture and culture of Jazan.",
+        "vibe": "Authentic & Educational",
+        "budget": "$ (Affordable)",
         "nearby_area": "Cultural Heritage Center",
+        "nearby_restaurant": "Traditional Village Kitchen",
+        "signature_dish": "Magshoush (Traditional dessert) and Haneeth",
+        "top_activity": "Watch folk dances and local craft-making",
         "best_time": "Afternoon",
-        "visited": false
+        "local_tip": "Visit during the winter season to catch the Jazan Winter Festival events."
       },
       {
         "id": "jaz_her_2",
         "name": "Dosariya Fort",
-        "nearby_area": "Ancient Historical Site",
+        "experience_summary": "A historical military fort built on a hill overlooking the city and sea.",
+        "vibe": "Ancient & Historical",
+        "budget": "$ (Low)",
+        "nearby_area": "Old Jazan District",
+        "nearby_restaurant": "Local Jazan eateries",
+        "signature_dish": "Marsah (Bananas, honey, and bread mixture)",
+        "top_activity": "Explore the old watchtowers and city views",
         "best_time": "Morning",
-        "visited": false
+        "local_tip": "The fort offers a great 360-degree view of the city—perfect for panoramic photos."
       }
     ]
   },
   "travel_tips": [
-    "Plan your Farasan Islands trip by checking the ferry schedule in advance.",
+    "Plan your Farasan Islands trip by checking the ferry schedule online in advance.",
     "Jabal Fifa has steep roads; hire a local guide if you're not used to mountain driving.",
-    "Winter is the best time for cultural festivals like the 'Hareed' fishing festival.",
-    "Try the local Jazan seafood for a truly authentic culinary experience."
+    "Try the 'Marsah' with honey—it’s the most famous local dish after seafood.",
+    "Jazan is famous for its Jasmine (Fula); buy a crown from local street vendors for the scent."
   ]
 }

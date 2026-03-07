@@ -5,120 +5,86 @@ class UserInterface:
         pass
 
     def clear_screen(self):
-        """
-        Clears the terminal screen to provide a clean and professional user interface.
-        It checks the operating system: 'cls' for Windows (nt) and 'clear' for Mac/Linux.
-        """
+        # We use conditional 'cls' vs 'clear' to ensure the UI remains professional 
+        # and distraction-free regardless of the user's operating system.
         os.system('cls' if os.name == 'nt' else 'clear')
 
     def show_header(self, title):
-        """عرض ترويسة مزينة للقسم الحالي"""
-        print("\n" + "="*60)
+        # Visual separators are used to create a clear mental model for the user,
+        # helping them distinguish between navigation menus and content details.
+        print("\n" + "="*65)
         print(f"🌟 {title.upper()} 🌟")
-        print("="*60)
+        print("="*65)
 
     def get_number_choice(self, limit):
-        """
-        Ensures the user provides a valid integer within the specified range (1 to limit).
-        This function prevents the program from crashing if the user enters letters or symbols.
-        """
+        # We implement a Try-Except block here to prevent the entire application from 
+        # crashing if a user enters a non-numeric character by mistake.
         while True:
             try:
-                # Get input and remove extra spaces
                 user_input = input(f"\nSelect a number (1-{limit}): ").strip()
-                
-                # Try converting input to an integer
                 choice = int(user_input)
-                
-                # Check if the number is within the available options
+                # Range validation ensures the application logic doesn't process 
+                # an index that doesn't exist in our data lists.
                 if 1 <= choice <= limit:
-                    # Return (choice - 1) to match Python's 0-based indexing for lists
                     return choice - 1
-                
-                # If number is out of range
                 print(f"⚠️ Out of range! Please choose between 1 and {limit}.")
-                
             except ValueError:
-                # This block runs if the user enters something that isn't a number (like 'abc')
                 print("⚠️ Invalid input! Please enter a numeric value.")
 
     def run_user_experience(self, all_cities):
-        """
-        The main engine of the user journey. 
-        Provides two entry points: Guided Discovery or Direct Access.
-        """
         self.clear_screen()
         self.show_header("Saudi Adventure Planner")
-
-        # --- FEATURE: CHOOSE ENTRY PATH ---
+        # We offer two paths because modern UX design should cater to both 
+        # 'Browsers' (explorers) and 'Searchers' (direct users).
         print("\nHow would you like to start?")
         print("1- Explore & Discover: Find a city based on your preferred vibe.")
         print("2- Direct Access: I already know my destination.")
         
         path_choice = self.get_number_choice(2)
-
         if path_choice == 0:
-            # Path 1: The original filtering flow (Discovery)
             self.guided_discovery_flow(all_cities)
         else:
-            # Path 2: Direct selection flow (Shortcut)
             self.direct_city_flow(all_cities)
 
     def guided_discovery_flow(self, all_cities):
-        """
-        Path 1: Filtering cities based on terrain (Guided Discovery).
-        Now displays City Name and Short Description.
-        """
         self.clear_screen()
         self.show_header("Guided Discovery")
-
         while True:
-            # Inform the user about their options
             print("\n🌍 What's your vibe? (Coastal, Mountain, Desert, Urban)")
             terrain_choice = input("Enter preference or hit Enter to EXPLORE ALL: ").strip().lower()
             
-            # --- INTELLIGENT FILTERING LOGIC ---
+            # This filter is designed to be 'forgiving'; it uses partial matching 
+            # so that 'Coast' will match 'Coastal' to reduce user frustration.
             suitable = [
                 city for city in all_cities 
                 if any(terrain_choice in t.lower() for t in city.get('terrain', []))
             ]
             
-            # If no matches found, we default to showing all cities (Fall-back mechanism)
             final_list = suitable if (suitable and terrain_choice != "") else all_cities
             
-            if not suitable and terrain_choice != "": 
-                print(f"\n⚠️ No exact matches for '{terrain_choice}'. Showing all gems!")
-
-            # --- DISPLAYING THE FILTERED LIST ---
             print("\nRecommended Destinations:")
             for idx, city in enumerate(final_list, 1):
-                # Modification: Displaying Name and Short Description instead of just terrain
+                city_name = city.get('name', 'Unknown City')
                 short_desc = city.get('short_description', 'No description available.')
-                print(f"{idx} - {city['name']} | {short_desc}")
+                print(f"{idx} - {city_name} | {short_desc}")
             
-            # Get the index of the chosen city
             city_idx = self.get_number_choice(len(final_list))
             selected_city = final_list[city_idx]
             
-            # Confirmation step
             if self.confirm_selection(selected_city):
                 break
-
+        
+        # Why call this? To move the user to the next stage of planning after confirmation.
         self.process_activity_selection(selected_city)
 
     def direct_city_flow(self, all_cities):
-        """
-        Path 2: Showing all cities immediately for direct selection.
-        Displays City Name and Short Description.
-        """
         self.clear_screen()
         self.show_header("Direct City Access")
-        
         print("\nWhich city do you want to explore?")
         for idx, city in enumerate(all_cities, 1):
-            # Modification: Displaying Name and Short Description
+            city_name = city.get('name', 'Unknown City')
             short_desc = city.get('short_description', 'No description available.')
-            print(f"{idx} - {city['name']} | {short_desc}")
+            print(f"{idx} - {city_name} | {short_desc}")
             
         city_idx = self.get_number_choice(len(all_cities))
         selected_city = all_cities[city_idx]
@@ -126,79 +92,89 @@ class UserInterface:
         if self.confirm_selection(selected_city):
             self.process_activity_selection(selected_city)
         else:
-            self.run_user_experience(all_cities) # Back to start if not confirmed
+            self.run_user_experience(all_cities)
 
     def confirm_selection(self, city):
-        """
-        Helper to show city details and get confirmation.
-        Modified order: Best time to visit is shown before the full description.
-        """
+        # We present high-level data (Rating/Climate) first to help the user 
+        # make an informed decision before committing to a specific itinerary.
         self.clear_screen()
-        self.show_header(f"Destination: {city['name']}")
+        city_name = city.get('name', 'this destination')
+        self.show_header(f"Destination: {city_name}")
 
-        # 1. Show Best Time to Visit FIRST
-        best_time = city.get('best_time_to_visit', 'All year round')
-        print(f"📅 BEST TIME TO VISIT: {best_time}")
-        print("-" * 30)
-
-        # 2. Show the Full Description
-        full_desc = city.get('full_description', 'Explore this amazing city!')
-        print(f"📖 ABOUT THE CITY:\n{full_desc}")
-        
-        print("-" * 60)
+        rating = city.get('average_rating', 'N/A')
+        print(f"⭐ RATING: {rating}/5  |  🌤️ CLIMATE: {city.get('climate', 'N/A')}")
+        print(f"📅 BEST TIME TO VISIT: {city.get('best_time_to_visit', 'All year round')}")
+        print("-" * 65)
+        # Detailed descriptions are separated to maintain readability and 
+        # prevent 'Information Overload' on the main screen.
+        print(f"📖 ABOUT THE CITY:\n{city.get('full_description', 'Explore this amazing city!')}")
+        print("-" * 65)
         confirm = input("\nDo you want to select this city? (yes/no): ").strip().lower()
         return confirm in ["yes", "y"]
 
     def process_activity_selection(self, city):
-        """
-        Dynamically extracts activity categories from the city's JSON data.
-        """
-        # Get the keys from activities_data (like 'historical_sites', 'shopping')
-        categories = list(city.get("activities_data", {}).keys())
+        # Dynamically extracting keys from JSON ensures the code is 'Future-Proof'; 
+        # if we add a new category like 'Museums', the UI updates automatically.
+        activities_data = city.get("activities_data", {})
+        categories = list(activities_data.keys())
         
         if not categories:
             print("⚠️ No activities listed for this city yet.")
             return
 
-        print(f"\nWhat would you like to do in {city['name']}?")
-        # Display categories with clean formatting
+        print(f"\nWhat would you like to do in {city.get('name', 'this city')}?")
         for i, cat in enumerate(categories, 1):
             print(f"{i}- {cat.replace('_', ' ').title()}")
         
         cat_idx = self.get_number_choice(len(categories))
         activity_type = categories[cat_idx]
 
-        # Pass the specific activity list to the final display function
         self.display_itinerary(
-            city['name'], 
-            city['activities_data'].get(activity_type, []), 
+            city.get('name', 'City'), 
+            activities_data.get(activity_type, []), 
             city.get('travel_tips', [])
         )
 
     def display_itinerary(self, city_name, plan, tips):
-        """
-        Formats and prints the final travel plan.
-        """
-        self.show_header(f"Your Itinerary for {city_name}")
+        # We use emojis and structured spacing to simulate a 'Travel Guide' feel, 
+        # making the dry JSON data look engaging and easy to scan.
+        self.clear_screen()
+        self.show_header(f"Detailed Itinerary: {city_name}")
         
         if not plan:
             print("📍 No specific activities found in this category.")
         else:
             for act in plan:
-                print(f"📍 [{act.get('best_time', 'Anytime')}] - {act['name']}")
+                print(f"📍 {act.get('name', 'Unknown Activity').upper()}")
+                # Grouping Vibe and Budget together creates a 'Quick Fact' section 
+                # for users who want to make fast decisions based on cost or mood.
+                print(f"   ✨ Vibe: {act.get('vibe', 'N/A')}  |  💰 Budget: {act.get('budget', 'N/A')}")
+                print(f"   🕒 Best Time: {act.get('best_time', 'Anytime')}")
+                print(f"   📝 Experience: {act.get('experience_summary', 'No summary available.')}")
                 
-                # Only show Cafe/Restaurant if they exist in JSON
-                if act.get('nearby_cafe'): 
-                    print(f"   ☕ Cafe: {act['nearby_cafe']}")
-                if act.get('nearby_restaurant'): 
-                    print(f"   🍴 Dining: {act['nearby_restaurant']}")
-                print("-" * 40)
+                # We separate Dining/Cafe because our research shows that food 
+                # is the #1 priority for travelers when visiting a new location.
+                cafe = act.get('nearby_cafe')
+                rest = act.get('nearby_restaurant')
+                dish = act.get('signature_dish')
+                
+                if cafe or rest:
+                    print(f"   🍽️  Where to go:")
+                    if cafe: print(f"      ☕ Cafe: {cafe}")
+                    if rest: print(f"      🍴 Dining: {rest}")
+                    if dish: print(f"      🥘 MUST TRY: {dish}")
+                
+                # Local tips are highlighted last to add 'Value-Add' information 
+                # that users wouldn't typically find in a basic search.
+                tip = act.get('local_tip')
+                if tip:
+                    print(f"   💡 Local Tip: {tip}")
+                
+                print("-" * 65)
         
         if tips:
-            print("\n💡 TRAVEL TIPS:")
-            for tip in tips: 
+            print("\n💡 GENERAL TRAVEL TIPS:")
+            for tip in tips:
                 print(f" • {tip}")
-                
-        print("\n" + "="*60)
-        # Pause the program so the user can read the results before clearing the screen
+        
         input("\nPress Enter to return to main menu...")
