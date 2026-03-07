@@ -1,0 +1,34 @@
+[
+    {
+        "city": "Jeddah",
+        "user": "Yasmine Bakri",
+        "nationality": "Saudi",
+        "type": "Local",
+        "comment": "Jeddah is Ghair! The sea breeze and the historical vibes of the old town make it the most beautiful coastal city.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Jeddah",
+        "user": "Hassan Ahmed",
+        "nationality": "Saudi",
+        "type": "Local",
+        "comment": "The waterfront is perfect for late-night walks. The atmosphere here is always lively and full of joy.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Jeddah",
+        "user": "Lucas Silva",
+        "nationality": "Brazilian",
+        "type": "Tourist",
+        "comment": "Historical Jeddah is fascinating! The architecture is so unique. I spent hours taking photos of the balconies.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Jeddah",
+        "user": "Karin Andersson",
+        "nationality": "Swedish",
+        "type": "Tourist",
+        "comment": "I loved the relaxed atmosphere and the amazing Red Sea diving. The food culture here is incredible.",
+        "sentiment": "Positive 😊"
+    }
+]

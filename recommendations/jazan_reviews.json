@@ -1,0 +1,34 @@
+[
+    {
+        "city": "Jazan",
+        "user": "Mohammed Jibran",
+        "nationality": "Saudi",
+        "type": "Local",
+        "comment": "Farasan is a hidden gem for divers. The coral reefs are pristine and the seafood is the best in the Kingdom.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Jazan",
+        "user": "Laila Ali",
+        "nationality": "Saudi",
+        "type": "Local",
+        "comment": "Waking up above the clouds in Fayfa is a dream. The view from the top is definitely worth the trip.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Jazan",
+        "user": "Jean Dupont",
+        "nationality": "French",
+        "type": "Tourist",
+        "comment": "The Heritage Village is very interesting. It shows a unique side of Saudi culture that is very authentic.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Jazan",
+        "user": "Hiroshi Tanaka",
+        "nationality": "Japanese",
+        "type": "Tourist",
+        "comment": "The beaches are very quiet and beautiful. A perfect place for those looking for untouched nature.",
+        "sentiment": "Positive 😊"
+    }
+]

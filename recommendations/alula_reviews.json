@@ -1,0 +1,34 @@
+[
+    {
+        "city": "AlUla",
+        "user": "Majed Al-Anzi",
+        "nationality": "Saudi",
+        "type": "Local",
+        "comment": "AlUla is a magical place where history meets nature. Every time I visit, I feel proud of our heritage.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "AlUla",
+        "user": "Reem Abdullah",
+        "nationality": "Saudi",
+        "type": "Local",
+        "comment": "The AlUla Oasis trail is so relaxing. Walking among the palm trees is the best way to clear your mind.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "AlUla",
+        "user": "Marco Rossi",
+        "nationality": "Italian",
+        "type": "Tourist",
+        "comment": "An open-air museum! The silence of the desert and the beauty of the Nabataean tombs are unlike anything else.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "AlUla",
+        "user": "Sophie Chen",
+        "nationality": "Chinese",
+        "type": "Tourist",
+        "comment": "Watching the sunset at Elephant Rock was beautiful. It is a mystical place that everyone should visit once.",
+        "sentiment": "Positive 😊"
+    }
+]

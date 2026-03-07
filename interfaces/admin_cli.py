@@ -6,9 +6,13 @@ class AdminInterface:
     def __init__(self, data_folder, ui_tools):
         self.data_folder = data_folder
         self.ui = ui_tools
-        # Why a hardcoded password? For this MVP, it acts as a simple 
-        # Access Control Layer to protect the JSON database.
+        # We also need a reference to the reviews folder to sync deletions and creations.
+        self.reviews_folder = 'recommendations'
         self.admin_password = "saudi2030" 
+        
+        # Ensure the recommendations directory exists so the admin can write to it.
+        if not os.path.exists(self.reviews_folder):
+            os.makedirs(self.reviews_folder)
 
     def authenticate(self):
         """
@@ -36,10 +40,6 @@ class AdminInterface:
         return False
 
     def manage_data(self):
-        """
-        The main control hub for the Admin. It branches into Create, 
-        Update, or Delete operations based on the employee's needs.
-        """
         if not self.authenticate():
             return
 
@@ -72,11 +72,18 @@ class AdminInterface:
         
         city_id = name.lower().replace(" ", "_")
         file_path = os.path.join(self.data_folder, f"{city_id}.json")
+        # --- SYNC: Prepare the review file path ---
+        reviews_path = os.path.join(self.reviews_folder, f"{city_id}_reviews.json")
         
         if os.path.exists(file_path):
             print("⚠️ This city already exists in the database!")
             input("Press Enter to continue...")
             return
+
+        # Initialize the city review file with an empty list.
+        # This ensures the User Interface won't crash when searching for new city reviews.
+        with open(reviews_path, 'w', encoding='utf-8') as rf:
+            json.dump([], rf)
 
         new_city_data = {
             "id": city_id,
@@ -142,10 +149,6 @@ class AdminInterface:
 
     # --- SECTION: DELETE ---
     def delete_data_menu(self):
-        """
-        Why a deletion menu? To give the admin full control over the 
-        database integrity, allowing for the removal of outdated info.
-        """
         self.ui.clear_screen()
         self.ui.show_header("Delete Data Control")
         print("1- Delete an Entire City (Permanent)")
@@ -165,12 +168,22 @@ class AdminInterface:
         print("\nSelect City to DELETE:")
         for i, f in enumerate(files, 1): print(f"{i}- {f.replace('.json', '').title()}")
         idx = self.ui.get_number_choice(len(files))
+        
+        city_id = files[idx].replace('.json', '')
         file_path = os.path.join(self.data_folder, files[idx])
+        # --- SYNC: Review file must be deleted too ---
+        reviews_path = os.path.join(self.reviews_folder, f"{city_id}_reviews.json")
         
         confirm = input(f"⚠️ Are you sure you want to delete {files[idx]}? (yes/no): ").lower()
         if confirm == 'yes':
-            os.remove(file_path)
-            print("🗑️ City deleted successfully.")
+            # Remove core data
+            if os.path.exists(file_path):
+                os.remove(file_path)
+            # Remove linked reviews to maintain database integrity
+            if os.path.exists(reviews_path):
+                os.remove(reviews_path)
+                
+            print(f"🗑️ {city_id.title()} and its reviews deleted successfully.")
             input("Press Enter to continue...")
 
     def delete_category(self):
@@ -228,10 +241,6 @@ class AdminInterface:
             return json.load(f), file_path
 
     def save_json(self, path, data):
-        """
-        Standardizes the way JSON files are saved to ensure 
-        encoding and indentation are consistent across the system.
-        """
         try:
             with open(path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=4, ensure_ascii=False)

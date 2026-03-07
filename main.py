@@ -7,12 +7,25 @@ from interfaces.admin_cli import AdminInterface
 
 class SaudiTravelApp:
     def __init__(self):
-        # We define a specific folder for data to make the system modular. 
+        # We define specific folders for data and recommendations to make the system modular. 
         self.data_folder = 'data'
+        self.reviews_folder = 'recommendations'
         self.cities = []
         self.ui = UserInterface()
         # Initialize the AdminInterface by passing the data folder and UI tools.
         self.admin = AdminInterface(self.data_folder, self.ui)
+        
+        # Self-Healing: We ensure all necessary directories exist before the app starts.
+        self.ensure_directories()
+
+    def ensure_directories(self):
+        """
+        By creating missing folders automatically, we provide a 'Zero-Config' 
+        experience for the user or developer setting up the app.
+        """
+        for folder in [self.data_folder, self.reviews_folder]:
+            if not os.path.exists(folder):
+                os.makedirs(folder)
 
     def load_data(self):
         """
@@ -21,22 +34,22 @@ class SaudiTravelApp:
         """
         self.cities = [] 
         
-        if not os.path.exists(self.data_folder):
-            os.makedirs(self.data_folder)
-            return False
+        # Reloading data ensures that any changes made by the Admin 
+        # are instantly reflected in the Tourist experience.
+        files = [f for f in os.listdir(self.data_folder) if f.endswith('.json')]
         
-        for file in os.listdir(self.data_folder):
-            if file.endswith('.json'):
-                path = os.path.join(self.data_folder, file)
-                with open(path, 'r', encoding='utf-8') as f:
-                    try:
-                        data = json.load(f)
-                        if isinstance(data, dict) and 'name' in data and 'id' in data:
-                            self.cities.append(data)
-                        else:
-                            print(f"⚠️ Skipping {file}: Integrity check failed.")
-                    except json.JSONDecodeError:
-                        print(f"⚠️ Warning: {file} is corrupted. Skipping.")
+        for file in files:
+            path = os.path.join(self.data_folder, file)
+            with open(path, 'r', encoding='utf-8') as f:
+                try:
+                    data = json.load(f)
+                    # Integrity check: Ensure required keys exist to prevent UI crashes.
+                    if isinstance(data, dict) and 'name' in data and 'id' in data:
+                        self.cities.append(data)
+                    else:
+                        print(f"⚠️ Skipping {file}: Missing core 'name' or 'id' keys.")
+                except json.JSONDecodeError:
+                    print(f"⚠️ Warning: {file} is corrupted. Skipping.")
         
         return True if self.cities else False
 
@@ -50,8 +63,8 @@ class SaudiTravelApp:
             self.ui.show_header("Saudi Tourism System Console")
             
             print("Welcome! Please identify your role to proceed:")
-            print("1. Tourist (Traveler Experience)")
-            print("2. Employee (Admin Dashboard)")
+            print("1. Tourist (Traveler Experience & Reviews)")
+            print("2. Employee (Admin Dashboard & Data Sync)")
             print("3. Exit System")
             
             choice_idx = self.ui.get_number_choice(3) 
@@ -62,6 +75,7 @@ class SaudiTravelApp:
                     self.ui.run_user_experience(self.cities)
                 else:
                     print("\n⚠️ Database Empty: No valid city files found in 'data/'.")
+                    print("💡 Tip: Log in as Employee to register new destinations.")
                     input("\nPress Enter to return...")
             
             elif choice_idx == 1: 

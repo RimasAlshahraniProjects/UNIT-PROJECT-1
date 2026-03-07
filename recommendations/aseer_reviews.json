@@ -1,0 +1,34 @@
+[
+    {
+        "city": "Aseer",
+        "user": "Nora Al-Qahtani",
+        "nationality": "Saudi",
+        "type": "Local",
+        "comment": "Aseer is breathtaking in the summer! The fog in the mountains is magical and the weather is so refreshing.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Aseer",
+        "user": "Sultan Ahmed",
+        "nationality": "Saudi",
+        "type": "Local",
+        "comment": "The heritage sites are well preserved. It is a very peaceful place for a family weekend in the nature.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Aseer",
+        "user": "David Miller",
+        "nationality": "American",
+        "type": "Tourist",
+        "comment": "The cable car ride was an amazing experience with stunning views. A perfect escape from the summer heat.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Aseer",
+        "user": "Elena Petrova",
+        "nationality": "Russian",
+        "type": "Tourist",
+        "comment": "I loved the traditional architecture and the colorful art. The locals are very friendly and hospitable.",
+        "sentiment": "Positive 😊"
+    }
+]

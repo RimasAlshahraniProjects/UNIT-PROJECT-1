@@ -1,0 +1,34 @@
+[
+    {
+        "city": "Riyadh",
+        "user": "Nasser Al-Subaie",
+        "nationality": "Saudi",
+        "type": "Local",
+        "comment": "Riyadh is the heart of the Kingdom. The blend of history in Diriyah with the modern towers is amazing.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Riyadh",
+        "user": "Sara Khalid",
+        "nationality": "Saudi",
+        "type": "Local",
+        "comment": "The city vibes during Riyadh Season are world-class. There is always something new to discover every day.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Riyadh",
+        "user": "Hans Muller",
+        "nationality": "German",
+        "type": "Tourist",
+        "comment": "The mix of traditional heritage and luxury dining is impressive. The organization of events is top-notch.",
+        "sentiment": "Positive 😊"
+    },
+    {
+        "city": "Riyadh",
+        "user": "Emily Watson",
+        "nationality": "British",
+        "type": "Tourist",
+        "comment": "A vibrant capital with great energy! I loved the winter activities, though the city is very large for walking.",
+        "sentiment": "Positive 😊"
+    }
+]
