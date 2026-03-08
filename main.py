@@ -1,39 +1,44 @@
 import os
 import json
-# Import the UserInterface to keep the logic (App) separate from the visual display (UI).
 from interfaces.user_cli import UserInterface
-# Import the AdminInterface to handle Employee logic separately.
 from interfaces.admin_cli import AdminInterface
+from rich import print as rprint
 
 class SaudiTravelApp:
     def __init__(self):
-        # Define specific folders for data and recommendations to keep the system modular. 
+        """
+        Initializes the application state and core dependencies.
+        Maintains structural integrity through modular directory mapping.
+        """
         self.data_folder = 'data'
         self.reviews_folder = 'recommendations'
         self.cities = []
+        
+        # Initialize UI first to use its methods (like clear_screen)
         self.ui = UserInterface()
-        # Initialize the AdminInterface with the required data path and UI tools.
+        # Pass UI instance to Admin for consistency in headers and styles
         self.admin = AdminInterface(self.data_folder, self.ui)
         
-        # Ensure all necessary directories exist when the application starts.
+        # Bootstrap: Ensure filesystem prerequisites are met
         self.ensure_directories()
+        
+        # Initial data load to populate the system on startup
+        self.load_data()
 
     def ensure_directories(self):
-        """
-        Creates missing folders automatically to provide a 'Zero-Config' experience.
-        """
+        """Zero-Config Setup: Automatically generates required infrastructure."""
         for folder in [self.data_folder, self.reviews_folder]:
             if not os.path.exists(folder):
                 os.makedirs(folder)
 
     def load_data(self):
         """
-        Filters out corrupted files and loads only valid city data structures.
+        Data Integrity Layer: Implements a 'Self-Healing' mechanism.
+        Returns True if at least one valid city is loaded.
         """
         self.cities = [] 
         
-        # Check if the data folder exists or if it is empty before proceeding.
-        if not os.path.exists(self.data_folder) or not os.listdir(self.data_folder):
+        if not os.path.exists(self.data_folder):
             return False
 
         files = [f for f in os.listdir(self.data_folder) if f.endswith('.json')]
@@ -44,8 +49,7 @@ class SaudiTravelApp:
                 with open(path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     
-                    # --- Data Integrity & Self-Healing ---
-                    # Recreates the review file if it is missing for an existing city.
+                    # --- Automated Recovery for Reviews ---
                     city_id = data.get('id')
                     if city_id:
                         review_path = os.path.join(self.reviews_folder, f"{city_id}_reviews.json")
@@ -53,50 +57,55 @@ class SaudiTravelApp:
                             with open(review_path, 'w', encoding='utf-8') as rf:
                                 json.dump([], rf)
                     
-                    # Verify core keys to prevent the UI from crashing during execution.
+                    # Schema Validation: Ensuring core keys exist
                     if isinstance(data, dict) and 'name' in data and 'id' in data:
                         self.cities.append(data)
-                    else:
-                        print(f"⚠️ Skipping {file}: Missing core 'name' or 'id' keys.")
-            except (json.JSONDecodeError, IOError) as e:
-                # Log the error and skip the file to prevent a full system crash.
-                print(f"⚠️ Warning: {file} is corrupted. Skipping. Error: {e}")
+            except (json.JSONDecodeError, IOError):
+                continue # Skip corrupted files silently to maintain flow
         
-        return True if self.cities else False
+        return len(self.cities) > 0
 
     def start_system(self):
         """
-        Acts as the main router for the application based on user roles.
+        Main Router: Dispatches requests to specialized experience flows.
         """
         while True:
             self.ui.clear_screen()
-            self.ui.show_header("Saudi Tourism System Console")
+            self.ui.show_header("SaudiExplorer Hub")
             
-            print("Welcome! Please identify your role to proceed:")
-            print("1. Tourist (Traveler Experience & Reviews)")
-            print("2. Employee (Admin Dashboard & Data Sync)")
-            print("3. Exit System")
+            rprint("\n[bold white]Welcome to the Kingdom,[/] [italic green]where heritage meets the future.[/]")
+            rprint("[dim white]How would you like to proceed today?[/]")
             
+            rprint("\n [bold green]1.[/] [white]Traveler Experience[/] [dim green](Explore destinations)[/]")
+            rprint(" [bold green]2.[/] [white]System Management[/] [dim green](Administrative access)[/]")
+            rprint(" [bold white]3.[/] [white]Exit Explorer[/]")
+            
+            # Use the robust validation method from UserInterface
             choice_idx = self.ui.get_number_choice(3) 
 
             if choice_idx == 0: 
-                # Tourist Path: Load current data to reflect the latest admin updates.
+                # Traveler Flow: Reload data to ensure updates are captured
                 if self.load_data():
                     self.ui.run_user_experience(self.cities)
                 else:
-                    print("\n⚠️ Database Empty: No valid city files found in 'data/'.")
-                    print("💡 Tip: Log in as Employee to register new destinations.")
+                    self.ui.clear_screen()
+                    self.ui.show_header("Notice")
+                    rprint("\n[bold white]The destination database is currently empty.[/]")
+                    rprint("[italic green]Please use the Management portal to add new destinations.[/]")
                     input("\nPress Enter to return...")
             
             elif choice_idx == 1: 
-                # Employee Path: Redirect to the Admin management module.
+                # Admin Flow: Redirect to specialized admin interface
                 self.admin.manage_data()
+                # Crucial: Re-sync local state immediately after admin exit
+                self.load_data() 
                 
             elif choice_idx == 2: 
-                print("\n🌟 Thank you for visiting Saudi Arabia! Safe travels.")
+                self.ui.clear_screen()
+                rprint("\n[bold white]It was a pleasure serving you today.[/]")
+                rprint("[bold green]Until we meet again, safe travels! 🇸🇦[/]\n")
                 break
 
-# Ensure the app only runs if this script is executed directly.
 if __name__ == "__main__":
     app = SaudiTravelApp()
     app.start_system()
