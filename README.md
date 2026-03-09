@@ -33,6 +33,7 @@ To ensure all visual and functional components work correctly, install the requi
 
 ```bash
 pip install -r requirements.txt
+```
 ---
 
 ### Phase 2: User Journey (Explorer Experience)
