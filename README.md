@@ -1,7 +1,7 @@
 # Project Name: Saudi Explorer
 
 ## Project Overview
-Saudi Explorer is a professional Python-based Command Line Interface (CLI) application designed to serve as the ultimate digital guide for tourists exploring Saudi Arabia. The application transforms the traditional travel experience by moving beyond static guides toward a dynamic, interactive, and authentic journey that supports the Kingdom's Digital Transformation and Vision 203
+Saudi Explorer is a professional Python-based Command Line Interface (CLI) application designed to serve as the ultimate digital guide for tourists exploring Saudi Arabia. The application transforms the traditional travel experience by moving beyond static guides toward a dynamic, interactive, and authentic journey that supports the Kingdom's Digital Transformation and Vision 2030
 
 ## The Four Main Pillars of Saudi Explorer
 
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 Once the application is active, users can navigate two main functional branches:
 
-#### A. Exploration & Interaction
+#### A. Exploration and Interaction
 - *Discovery Mode:* Browse diverse Saudi cities (e.g., AlUla) to view cultural landmarks, budget ranges ($ to $$$), and native "Insider Tips."
 - *Personalized Planning:* Utilize the "For Today" engine to generate a custom daily itinerary based on real-time interest selection and category filtering.
 
@@ -50,7 +50,7 @@ Once the application is active, users can navigate two main functional branches:
 
 
 
-### Phase 3: Administrative & Secure Access
+### Phase 3: Administrative and Secure Access
 
 #### Secure Authentication
 Access the restricted administrative panel through a secure login using encrypted credentials.
