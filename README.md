@@ -22,7 +22,7 @@ Saudi Explorer is a professional Python-based Command Line Interface (CLI) appli
 
 ---
 
-## Usage & Execution Guide
+## Usage and Execution Guide
 
 Saudi Explorer follows a structured workflow divided into three primary phases:
 
