@@ -72,3 +72,4 @@ Saudi Explorer is built using **Python** and leverages professional libraries an
 - **Textwrap:** A built-in Python module used for formatting and wrapping long blocks of text, ensuring content remains readable and perfectly aligned within terminal boundaries.
 - **Colorama:** Employed to provide cross-platform support for colored terminal text, ensuring a consistent visual experience.
 - **Art:** Used to generate professional ASCII headers, giving the application a unique and welcoming visual identity.
+- **Art:** Used to generate professional ASCII headers, giving the application a unique and welcoming visual
