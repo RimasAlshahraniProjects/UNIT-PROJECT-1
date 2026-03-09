@@ -34,7 +34,7 @@ To ensure all visual and functional components work correctly, install the requi
 ```bash
 pip install -r requirements.txt
 ```
----
+
 
 ### Phase 2: User Journey (Explorer Experience)
 
@@ -48,7 +48,7 @@ Once the application is active, users can navigate two main functional branches:
 - *Browse Stories:* Access a structured feed of authentic experiences and reviews shared by local and international travelers.
 - *Contribute Insights:* Share "Expert Advice" or traveler stories via interactive prompts, which are added to the shared community database.
 
----
+
 
 ### Phase 3: Administrative & Secure Access
 
@@ -59,6 +59,8 @@ Access the restricted administrative panel through a secure login using encrypte
 - *Dynamic Scaling:* Add new emerging cities to reflect regional development.
 - *Data Moderation:* Remove outdated or non-valuable content to maintain high-quality data.
 - *Vision Alignment:* Update platform parameters to remain aligned with the Kingdom's tourism goals.
+
+  ---
 
 # Technologies and Libraries
 
