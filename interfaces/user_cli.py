@@ -2,10 +2,10 @@ import os
 import textwrap
 import json
 from rich.console import Console  # Styling: Core class for managing and rendering console output
-from rich.panel import Panel      # Styling: Tool for enclosing text or objects within a bordered box
-from rich.table import Table      # Styling: Tool for presenting data in a structured tabular format
-from rich.columns import Columns  # Styling: Helper for displaying multiple items side-by-side
-from rich.text import Text        # Styling: Class for advanced text styling (colors/fonts within a string)
+from rich.panel import Panel       # Styling: Tool for enclosing text or objects within a bordered box
+from rich.table import Table       # Styling: Tool for presenting data in a structured tabular format
+from rich.columns import Columns   # Styling: Helper for displaying multiple items side-by-side
+from rich.text import Text         # Styling: Class for advanced text styling (colors/fonts within a string)
 from rich import print as rprint  # Styling: Enhanced print function (Aliased as 'rprint') to support Rich markup and cross-platform color rendering
 
 console = Console()
@@ -105,7 +105,6 @@ class UserInterface:
         for act in activities:
             loc_vibe = f"{act.get('name', 'N/A')}\n[dim]{act.get('vibe', 'Authentic Experience')}[/]"
             
-            # Clean text instead of icons
             must_try = f"Dish: {act.get('signature_dish', 'N/A')}\nActivity: {act.get('top_activity', 'N/A')}"
             social = f"Cafe: {act.get('nearby_cafe', 'Nearby')}\nRest: {act.get('nearby_restaurant', 'Nearby')}"
 
@@ -142,10 +141,9 @@ class UserInterface:
             else:
                 for r in reviews:
                     wrapped_comment = textwrap.fill(r.get('comment', ''), width=65)
-                    # Simple clean panel for feedback
                     rprint(Panel(
                         wrapped_comment, 
-                        title=f"[bold green]{r.get('sentiment', 'Positive')}[/]", 
+                        title=f"[bold green]{r.get('sentiment', 'Positive 😊')}[/]", 
                         subtitle=f"By {r.get('user')} ({r.get('nationality')} {r.get('type')})"
                     ))
 
@@ -159,10 +157,10 @@ class UserInterface:
                 break
 
     def add_new_review(self, city_id, file_path, existing_reviews):
-        """Collects feedback with strict validation to ensure data quality."""
+        """Collects feedback with manual sentiment selection for 100% accuracy."""
         self.clear_screen()
         self.show_header("Share Your Experience")
-        rprint("[bold green]We value your journey![/] [white]Please provide valid details:[/]\n")
+        rprint("[bold green]We value your journey![/] [white]Please provide your travel details:[/]\n")
         
         while True:
             name = input("Full Name: ").strip()
@@ -185,7 +183,24 @@ class UserInterface:
             if len(comment) >= 5: break
             rprint("[dim white]Error: Your story is too short.[/]")
 
-        sentiment = input("How was the vibe? (e.g., Magical, Modern): ").strip() or "Excellent"
+        # Manual Sentiment Selection Logic
+        rprint("\n[bold white]How was the vibe of your trip?[/]")
+        rprint(" [bold green]1.[/] Positive 😊")
+        rprint(" [bold yellow]2.[/] Neutral 😐")
+        rprint(" [bold red]3.[/] Negative ☹️")
+        
+        sentiment_map = {
+            "1": "Positive 😊",
+            "2": "Neutral 😐",
+            "3": "Negative ☹️"
+        }
+        
+        while True:
+            vibe_choice = input("\nSelect (1-3): ").strip()
+            if vibe_choice in sentiment_map:
+                selected_sentiment = sentiment_map[vibe_choice]
+                break
+            rprint("[dim white]Error: Please select 1, 2, or 3.[/]")
 
         new_entry = {
             "city": city_id.capitalize(),
@@ -193,8 +208,9 @@ class UserInterface:
             "nationality": nationality,
             "type": v_type,
             "comment": comment,
-            "sentiment": sentiment
+            "sentiment": selected_sentiment
         }
+        
         existing_reviews.append(new_entry)
 
         with open(file_path, 'w', encoding='utf-8') as f:
