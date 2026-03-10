@@ -10,11 +10,16 @@ from rich import print as rprint
 console = Console()
 
 class AdminInterface:
-    def __init__(self, data_folder, ui_tools):
+    def __init__(self, data_folder, ui_tools, secret_password):
+        """
+        Initialize the administrative interface.
+        Integrates environment-based security for credential management.
+        """
         self.data_folder = data_folder
         self.ui = ui_tools
         self.reviews_folder = 'recommendations'
-        self.admin_password = "saudi2030" 
+        # Secret password injected from main.py (loaded via python-dotenv)
+        self.admin_password = secret_password 
         
         # Ensure the recommendations directory exists
         if not os.path.exists(self.reviews_folder):
@@ -36,12 +41,14 @@ class AdminInterface:
             return user_input
 
     def authenticate(self):
-        """Standard login security check."""
+        """Standard login security check using the secret environment key."""
         self.ui.clear_screen()
         self.ui.show_header("Administrative Security")
         attempts = 3
         while attempts > 0:
+            # Standard input for better visibility during the demonstration
             password = console.input(f"\n[bold white]Key Passcode ({attempts} left): [/]").strip()
+            
             if password == self.admin_password:
                 rprint("\n[bold green]Success: Identity Verified. Access Granted.[/]")
                 time.sleep(1)
@@ -53,7 +60,9 @@ class AdminInterface:
 
     def manage_data(self):
         """Main Admin menu with simplified action verbs."""
+        # Verification gate
         if not self.authenticate(): return
+        
         while True:
             self.ui.clear_screen()
             self.ui.show_header("Admin: Command Center")
@@ -86,11 +95,9 @@ class AdminInterface:
             input("Press Enter...")
             return
 
-        # Terrain input (flexible text input, cleaned into a list)
         rprint("\n[bold white]Terrain Profile:[/]")
         rprint("[dim white](Separate multiple types with commas, e.g.: Coastal, Urban, Heritage)[/]")
         raw_terrains = self.get_validated_input("Enter Terrains: ")
-        # Remove parentheses if entered and split by comma
         terrain_list = [t.strip().capitalize() for t in raw_terrains.replace('(', '').replace(')', '').split(',')]
 
         climate = self.get_validated_input("Climate (e.g., Warm / Mild Winter): ")
@@ -100,7 +107,6 @@ class AdminInterface:
         full_desc  = self.get_validated_input("Full Description (The Story): ")
         best_time  = self.get_validated_input("Best Time to Visit (e.g., October to April): ")
 
-        # Create the data dictionary matching the required JSON structure
         new_city_data = {
             "id": city_id,
             "name": name,
@@ -116,7 +122,6 @@ class AdminInterface:
             "travel_tips": ["Standard safety protocols apply."]
         }
         
-        # Automatically generate a linked reviews file
         reviews_path = os.path.join(self.reviews_folder, f"{city_id}_reviews.json")
         with open(reviews_path, 'w', encoding='utf-8') as rf:
             json.dump([], rf)

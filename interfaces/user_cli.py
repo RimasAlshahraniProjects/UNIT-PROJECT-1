@@ -46,7 +46,7 @@ class UserInterface:
         rprint(Panel(welcome_msg, border_style="green"))
         
         rprint("\n[bold white]Journey Options:[/]")
-        rprint(" [bold green]1.[/] Explore by Vibe (Guided Discovery)")
+        rprint(" [bold green]1.[/] Explore KSA Cities")
         rprint(" [bold green]2.[/] I Know My Destination (Direct Access)")
         
         path_choice = self.get_number_choice(2)
@@ -68,8 +68,8 @@ class UserInterface:
                 clean_name = cat.replace('_', ' ').capitalize()
                 rprint(f" [bold green]{idx}.[/] {clean_name}")
             
-            rprint(f" [bold green]{len(categories) + 1}.[/] Traveler Feedback & Stories")
-            rprint(f" [bold white]{len(categories) + 2}.[/] Return to Main Hub")
+            rprint(f" [bold green]{len(categories) + 1}.[/] Community Stories and Reviews")
+            rprint(f" [bold white]{len(categories) + 2}.[/] Return to Main Menu")
 
             choice = self.get_number_choice(len(categories) + 2)
 

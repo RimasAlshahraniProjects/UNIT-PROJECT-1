@@ -1,8 +1,12 @@
 import os
 import json
+from dotenv import load_dotenv  # Added: Library for security
 from interfaces.user_cli import UserInterface
 from interfaces.admin_cli import AdminInterface
 from rich import print as rprint
+
+# Added: Load secrets from .env file immediately
+load_dotenv()
 
 class SaudiTravelApp:
     def __init__(self):
@@ -14,10 +18,14 @@ class SaudiTravelApp:
         self.reviews_folder = 'recommendations'
         self.cities = []
         
+        # Added: Fetch the password from the environment variables
+        self.admin_password = os.getenv("ADMIN_PASSWORD")
+        
         # Initialize UI first to use its methods (like clear_screen)
         self.ui = UserInterface()
-        # Pass UI instance to Admin for consistency in headers and styles
-        self.admin = AdminInterface(self.data_folder, self.ui)
+        
+        # Fixed: Pass the secret_password to match the updated AdminInterface
+        self.admin = AdminInterface(self.data_folder, self.ui, self.admin_password)
         
         # Bootstrap: Ensure filesystem prerequisites are met
         self.ensure_directories()
