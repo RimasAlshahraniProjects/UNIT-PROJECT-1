@@ -69,6 +69,7 @@ Saudi Explorer is built using **Python** and leverages professional libraries an
 - **Python:** The core programming language used for modular logic and data processing.
 - **JSON:** Utilized as a lightweight data-interchange format to store and manage city details, user stories, and community insights, ensuring structured data persistence.
 - **Rich:** Utilized for advanced terminal formatting, including tables and stylized text, to create a modern CLI interface.
+- **python-dotenv:** A Python library used to securely manage environment variables, protecting sensitive credentials such as administrative access and API keys.
 - **Textwrap:** A built-in Python module used for formatting and wrapping long blocks of text, ensuring content remains readable and perfectly aligned within terminal boundaries.
 - **Colorama:** Employed to provide cross-platform support for colored terminal text, ensuring a consistent visual experience.
 - **Art:** Used to generate professional ASCII headers, giving the application a unique and welcoming visual identity.
